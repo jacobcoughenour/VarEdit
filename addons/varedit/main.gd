@@ -5,7 +5,9 @@ var editor_plugin: VarEditPlugin
 
 @onready var tab_bar: TabBar = get_node("%TabBar")
 @onready var view_option_button: OptionButton = get_node("%ViewOptionButton")
+@onready var tree_container: VBoxContainer = get_node("%TreeContainer")
 @onready var tree: Tree = get_node("%Tree")
+@onready var tree_path_filter: LineEdit = get_node("%TreePathFilter")
 @onready var code_edit: CodeEdit = get_node("%CodeEdit")
 @onready var default_label: Label = get_node("%DefaultLabel")
 @onready var reload_check_button: CheckButton = get_node("%ReloadCheckButton")
@@ -70,6 +72,7 @@ func _ready():
 	get_window().connect("files_dropped", Callable(self, "_on_files_dropped"))
 	tab_bar.connect("tab_changed", Callable(self, "select_file"))
 	tab_bar.connect("tab_close_pressed", Callable(self, "close_file"))
+	tree_path_filter.connect("text_changed", Callable(self, "filter_changed"))
 
 	tab_bar.clear_tabs()
 	tab_bar.tab_close_display_policy = TabBar.CLOSE_BUTTON_SHOW_ACTIVE_ONLY
@@ -79,6 +82,8 @@ func _ready():
 	tree.set_column_title(1, "Value")
 	tree.set_column_expand(1, true)
 	tree.column_titles_visible = true
+
+	tree.connect("item_activated", Callable(self, "tree_item_activated"))
 
 func _on_files_dropped(files):
 	for file in files:
@@ -90,12 +95,12 @@ func _process(delta):
 
 	if open_files.is_empty():
 		default_label.visible = true
-		tree.visible = false
+		tree_container.visible = false
 		code_edit.visible = false
 		return
 
 	default_label.visible = false
-	tree.visible = view_option_button.selected == 0
+	tree_container.visible = view_option_button.selected == 0
 	code_edit.visible = view_option_button.selected == 1
 
 	if reload_check_button.button_pressed:
@@ -137,6 +142,15 @@ func close_file(index: int):
 	open_files.remove_at(index)
 	file_changed(false)
 
+func filter_changed(val: String):
+	file_changed(false)
+
+func tree_item_activated():
+	var item = tree.get_selected()
+	var path = item.get_metadata(0)
+	tree_path_filter.text = path
+	filter_changed(path)
+
 func file_changed(preserve_scroll: bool):
 	if len(open_files) == 0:
 		return
@@ -148,16 +162,16 @@ func file_changed(preserve_scroll: bool):
 
 	tree.clear()
 	var root = tree.create_item()
-	populate(root, "root", cur.data, "")
+	var filter = RegEx.new()
+	populate(root, "root", cur.data, "", tree_path_filter.text)
 	code_edit.text = JSON.stringify(cur.data, "\t")
 
 	if preserve_scroll:
 		code_edit.scroll_horizontal = cx
 		code_edit.scroll_vertical = cy
 
-func populate(item: TreeItem, key: Variant, data: Variant, full_path: String):
+func populate(item: TreeItem, key: Variant, data: Variant, full_path: String, filter: String):
 	item.set_text(0, str(key))
-
 	item.set_editable(1, true)
 
 	var type = typeof(data)
@@ -166,16 +180,21 @@ func populate(item: TreeItem, key: Variant, data: Variant, full_path: String):
 		item.set_icon(0, type_icons[type])
 
 	item.set_tooltip_text(0, "[%s] %s" % [types[type], full_path])
+	item.set_metadata(0, full_path)
 
 	match type:
 		TYPE_DICTIONARY:
 			for k in data:
-				var child = item.create_child()
-				populate(child, k, data[k], k if full_path == "" else full_path + "." + k)
+				var path = k if full_path == "" else full_path + "." + str(k)
+				if len(filter) == 0 or path.find(filter) == 0 or filter.find(path) == 0:
+					var child = item.create_child()
+					populate(child, k, data[k], path, filter)
 		TYPE_ARRAY:
 			for i in len(data):
-				var child = item.create_child()
-				populate(child, "[%d]" % i, data[i], full_path + "[%d]" % i)
+				var path = full_path + "[%d]" % i
+				if len(filter) == 0 or path.find(filter) == 0 or filter.find(path) == 0:
+					var child = item.create_child()
+					populate(child, "[%d]" % i, data[i], path, filter)
 		_:
 			item.set_text(1, str(data))
 
