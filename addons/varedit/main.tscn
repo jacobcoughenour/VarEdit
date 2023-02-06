@@ -1,0 +1,3249 @@
+[gd_scene load_steps=4 format=3 uid="uid://mum5enubnnx8"]
+
+[ext_resource type="Script" path="res://addons/varedit/main.gd" id="1_71g4b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f6dxu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y5lxt"]
+bg_color = Color(0.12549, 0.152941, 0.168627, 1)
+
+[node name="Control" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_f6dxu")
+script = ExtResource("1_71g4b")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="TopBar" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 0
+
+[node name="TabBar" type="TabBar" parent="VBoxContainer/TopBar/MarginContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+tab_close_display_policy = 1
+tab_count = 22
+tab_0/title = "data.sv"
+tab_1/title = "data.sv"
+tab_2/title = "data.sv"
+tab_3/title = "data.sv"
+tab_4/title = "data.sv"
+tab_5/title = "data.sv"
+tab_6/title = "data.sv"
+tab_7/title = "data.sv"
+tab_8/title = "data.sv"
+tab_9/title = "data.sv"
+tab_10/title = "data.sv"
+tab_11/title = "data.sv"
+tab_12/title = "data.sv"
+tab_13/title = "data.sv"
+tab_14/title = "data.sv"
+tab_15/title = "data.sv"
+tab_16/title = "data.sv"
+tab_17/title = "data.sv"
+tab_18/title = "data.sv"
+tab_19/title = "data.sv"
+tab_20/title = "data.sv"
+tab_21/title = "data.sv"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TopBar"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TopBar/MarginContainer"]
+layout_mode = 2
+
+[node name="ReloadCheckButton" type="CheckButton" parent="VBoxContainer/TopBar/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Reload"
+
+[node name="ViewOptionButton" type="OptionButton" parent="VBoxContainer/TopBar/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+item_count = 2
+selected = 0
+popup/item_0/text = "Tree"
+popup/item_0/id = 0
+popup/item_1/text = "JSON"
+popup/item_1/id = 1
+
+[node name="ContentContainer" type="Control" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DefaultLabel" type="Label" parent="VBoxContainer/ContentContainer"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0.47451)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Drop a file here to open it"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tree" type="Tree" parent="VBoxContainer/ContentContainer"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+column_titles_visible = true
+
+[node name="CodeEdit" type="CodeEdit" parent="VBoxContainer/ContentContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "{
+	\"Entities\": [
+		{
+			\"ConstantForce\": \"(-0.202945, -0.101473, 0.008118)\",
+			\"ConstantTorque\": \"(0.000282, 0.003963, 0.002049)\",
+			\"GlobalTransform\": \"[X: (-0.743617, -0.20491, 0.636433), Y: (0.400929, 0.625095, 0.66971), Z: (-0.535061, 0.753172, -0.382677), O: (-63.70282, 6.958569, -30.97081)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 30.2552223205566,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.210538, -0.105269, 0.008422)\",
+			\"ConstantTorque\": \"(0.001696, 0.00127, 0.002102)\",
+			\"GlobalTransform\": \"[X: (0.963205, 0.242141, -0.116638), Y: (-0.215866, 0.955509, 0.201008), Z: (0.160121, -0.168434, 0.972621), O: (-69.75653, -19.41306, -42.66484)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 30.588550567627,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.202535, -0.101267, 0.008101)\",
+			\"ConstantTorque\": \"(-0.001944, 0.003302, 0.002545)\",
+			\"GlobalTransform\": \"[X: (0.817442, -0.415245, 0.3992), Y: (0.280412, 0.892253, 0.353913), Z: (-0.503148, -0.177362, 0.845804), O: (-59.35251, 36.59789, -67.61546)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 30.9218788146973,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.218212, -0.109106, 0.008728)\",
+			\"ConstantTorque\": \"(0.002049, 0.000561, 0.001802)\",
+			\"GlobalTransform\": \"[X: (0.214049, 0.708128, 0.672858), Y: (-0.200652, -0.64226, 0.739757), Z: (0.955993, -0.293354, 0.004612), O: (-68.45309, 8.589714, -36.32206)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 31.2718734741211,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.178883, -0.089441, 0.007155)\",
+			\"ConstantTorque\": \"(0.003872, 0.000758, 0.001793)\",
+			\"GlobalTransform\": \"[X: (0.999982, 0.005482, -0.00228), Y: (-0.005455, 0.999915, 0.011818), Z: (0.002345, -0.011805, 0.999928), O: (97.00966, 32.32117, -46.582)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 31.6052017211914,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.179297, -0.089649, 0.007172)\",
+			\"ConstantTorque\": \"(0.000772, 0.003525, 0.000529)\",
+			\"GlobalTransform\": \"[X: (0.999941, 0.001627, -0.010751), Y: (-0.001602, 0.999996, 0.002363), Z: (0.010755, -0.002346, 0.999939), O: (102.9451, 35.29342, -4.439589)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 31.9385299682617,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.181151, -0.090575, 0.007246)\",
+			\"ConstantTorque\": \"(0.000754, 0.000761, 0.002506)\",
+			\"GlobalTransform\": \"[X: (0.999968, 0.007648, -0.002314), Y: (-0.007642, 0.999968, 0.00231), Z: (0.002331, -0.002293, 0.999995), O: (102.8332, 37.43975, -33.31525)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 32.271858215332,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.204126, -0.102063, 0.008165)\",
+			\"ConstantTorque\": \"(0.001453, 0.003202, -0.001187)\",
+			\"GlobalTransform\": \"[X: (0.984348, 0.067477, 0.162806), Y: (-0.054983, 0.995272, -0.080063), Z: (-0.167439, 0.069859, 0.983404), O: (-57.11761, -7.353924, 21.51591)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 32.6051864624023,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.188675, -0.094337, 0.007547)\",
+			\"ConstantTorque\": \"(0.000671, 0.002666, -0.000227)\",
+			\"GlobalTransform\": \"[X: (0.745127, 0.007502, -0.666881), Y: (0.119903, 0.982137, 0.14502), Z: (0.656056, -0.188019, 0.730917), O: (-47.92426, -53.96498, -34.03853)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 32.9385147094727,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.211186, -0.105593, 0.008447)\",
+			\"ConstantTorque\": \"(0.001276, 0.001247, -0.001653)\",
+			\"GlobalTransform\": \"[X: (0.775072, -0.408672, -0.481925), Y: (0.575607, 0.771267, 0.271705), Z: (0.260654, -0.48799, 0.833022), O: (-62.16304, -6.570454, -13.73673)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 33.271842956543,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.218318, -0.109159, 0.008733)\",
+			\"ConstantTorque\": \"(-0.000874, 0.003932, 0.00337)\",
+			\"GlobalTransform\": \"[X: (-0.412635, 0.391243, -0.822594), Y: (-0.753058, 0.36155, 0.549715), Z: (0.51248, 0.846293, 0.14544), O: (-63.68243, -11.40555, 2.704651)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 33.6051712036133,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.225814, -0.112907, 0.009033)\",
+			\"ConstantTorque\": \"(0.000039, 0.00354, 0.003765)\",
+			\"GlobalTransform\": \"[X: (0.996726, 0.05892, -0.055371), Y: (-0.058886, 0.998262, 0.002246), Z: (0.055407, 0.001022, 0.998463), O: (-66.82574, -23.19001, -39.62422)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 33.9384994506836,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.224298, -0.112149, 0.008972)\",
+			\"ConstantTorque\": \"(-0.001001, -0.00185, 0.003626)\",
+			\"GlobalTransform\": \"[X: (0.718379, 0.648051, 0.252906), Y: (-0.585081, 0.759517, -0.284279), Z: (-0.376314, 0.05625, 0.924783), O: (-71.6752, -72.06886, -52.89115)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 34.2718276977539,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.200363, -0.100182, 0.008015)\",
+			\"ConstantTorque\": \"(0.001041, 0.003677, 0.003293)\",
+			\"GlobalTransform\": \"[X: (-0.902529, 0.194772, 0.384064), Y: (0.403165, 0.068765, 0.91254), Z: (0.151327, 0.978435, -0.140588), O: (-50.26265, 40.45627, 18.55807)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 34.6051559448242,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.257553, -0.128777, 0.010302)\",
+			\"ConstantTorque\": \"(-0.001586, 0.002887, -0.001288)\",
+			\"GlobalTransform\": \"[X: (0.71344, -0.410633, -0.567789), Y: (0.148123, 0.880366, -0.450572), Z: (0.684882, 0.237353, 0.688912), O: (-94.79431, -57.00111, -56.66739)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 34.9384841918945,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.239058, -0.119529, 0.009562)\",
+			\"ConstantTorque\": \"(0.002719, 0.001418, -0.00094)\",
+			\"GlobalTransform\": \"[X: (0.876711, -0.078187, -0.47462), Y: (0.406708, 0.647339, 0.644625), Z: (0.256838, -0.758181, 0.599329), O: (-78.77538, -13.32142, -22.2524)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 35.2718124389648,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.196098, -0.098049, 0.007844)\",
+			\"ConstantTorque\": \"(0.002989, -0.001395, 0.001015)\",
+			\"GlobalTransform\": \"[X: (0.837848, -0.502557, -0.213184), Y: (0.04816, 0.457041, -0.888141), Z: (0.543775, 0.73386, 0.407134), O: (-48.47124, 53.02885, -81.99499)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 35.6051406860352,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.213689, -0.106844, 0.008548)\",
+			\"ConstantTorque\": \"(-0.001165, 0.001457, 0.002912)\",
+			\"GlobalTransform\": \"[X: (0.287817, -0.939575, 0.185367), Y: (0.711525, 0.339348, 0.615285), Z: (-0.64101, -0.045196, 0.766201), O: (-57.0347, 19.38554, -76.41807)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 35.9384689331055,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.213885, -0.106942, 0.008555)\",
+			\"ConstantTorque\": \"(0.001103, 0.003308, -0.001533)\",
+			\"GlobalTransform\": \"[X: (-0.05497, 0.687319, 0.724273), Y: (-0.108134, 0.717005, -0.688629), Z: (-0.992615, -0.116172, 0.034909), O: (-59.18143, -31.35136, -80.5355)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 36.2717971801758,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.184873, -0.092437, 0.007395)\",
+			\"ConstantTorque\": \"(0.003627, -0.000721, -0.000296)\",
+			\"GlobalTransform\": \"[X: (0.920402, -0.390189, -0.024737), Y: (-0.29525, -0.735142, 0.610241), Z: (-0.256294, -0.554363, -0.79183), O: (-34.28642, 35.86755, -37.15805)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 36.6051254272461,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.251738, -0.125869, 0.01007)\",
+			\"ConstantTorque\": \"(0.00058, -0.000026, -0.000215)\",
+			\"GlobalTransform\": \"[X: (0.860805, 0.299329, -0.411604), Y: (-0.389852, -0.13207, -0.911358), Z: (-0.327156, 0.944966, 0.003008), O: (-83.42889, -14.71936, 22.77854)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 36.9384536743164,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.197405, -0.098703, 0.007896)\",
+			\"ConstantTorque\": \"(0.003324, 0.001964, 0.000047)\",
+			\"GlobalTransform\": \"[X: (0.69833, 0.498418, 0.513726), Y: (0.522168, 0.136156, -0.841904), Z: (-0.489567, 0.856178, -0.165176), O: (-41.88287, 30.51892, 21.74239)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 37.2717819213867,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.232782, -0.116391, 0.009311)\",
+			\"ConstantTorque\": \"(0.001691, 0.002174, -0.000547)\",
+			\"GlobalTransform\": \"[X: (0.422498, 0.616564, 0.664338), Y: (0.228425, 0.636877, -0.736349), Z: (-0.877107, 0.462857, 0.128241), O: (-64.40851, -3.060032, -61.70263)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 37.605110168457,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.244159, -0.12208, 0.009766)\",
+			\"ConstantTorque\": \"(-0.001743, 0.000231, 0.00285)\",
+			\"GlobalTransform\": \"[X: (0.422597, 0.803965, -0.418393), Y: (-0.860903, 0.211788, -0.462592), Z: (-0.283297, 0.555686, 0.781637), O: (-72.90305, -41.94046, -68.77165)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 37.9384384155273,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.252408, -0.126204, 0.010096)\",
+			\"ConstantTorque\": \"(-0.001573, -0.001188, -0.001371)\",
+			\"GlobalTransform\": \"[X: (-0.073442, 0.880446, 0.468424), Y: (0.338423, -0.419821, 0.842152), Z: (0.938124, 0.220375, -0.26713), O: (-82.3237, -74.51204, 34.99405)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 38.2717666625977,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.180608, -0.090304, 0.007224)\",
+			\"ConstantTorque\": \"(0.00196, -0.000211, 0.000022)\",
+			\"GlobalTransform\": \"[X: (1, 0.000066, 0.000645), Y: (-0.00007, 0.999982, 0.005979), Z: (-0.000645, -0.005979, 0.999982), O: (98.7527, 54.21705, -50.69223)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 38.6217613220215,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.217088, -0.108544, 0.008684)\",
+			\"ConstantTorque\": \"(0.002926, -0.001494, 0.002604)\",
+			\"GlobalTransform\": \"[X: (0.124223, 0.014298, 0.992151), Y: (-0.863578, -0.490879, 0.115199), Z: (0.488673, -0.871111, -0.048631), O: (-51.26686, -7.207912, 25.62973)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 38.9550895690918,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.220843, -0.110421, 0.008834)\",
+			\"ConstantTorque\": \"(-0.001661, 0.003044, -0.001821)\",
+			\"GlobalTransform\": \"[X: (-0.55058, -0.411405, 0.726366), Y: (-0.834565, 0.251398, -0.490205), Z: (0.019066, -0.876097, -0.481758), O: (-56.71103, 0.271389, -31.25296)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 39.3050842285156,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.257187, -0.128593, 0.010287)\",
+			\"ConstantTorque\": \"(0.000266, 0.000025, 0.002416)\",
+			\"GlobalTransform\": \"[X: (-0.957519, -0.189042, 0.217761), Y: (0.193585, -0.981083, -0.000478), Z: (0.213732, 0.041697, 0.976002), O: (-78.96454, -13.76875, 42.70721)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 39.6384124755859,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.185551, -0.092776, 0.007422)\",
+			\"ConstantTorque\": \"(0.001512, 0.003699, 0.002273)\",
+			\"GlobalTransform\": \"[X: (-0.150931, 0.814602, -0.560038), Y: (-0.131494, 0.54495, 0.828094), Z: (0.97976, 0.198627, 0.024866), O: (-29.88136, -50.78343, -49.85499)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 39.9717407226562,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.227256, -0.113628, 0.00909)\",
+			\"ConstantTorque\": \"(0.000904, -0.000861, 0.003932)\",
+			\"GlobalTransform\": \"[X: (0.991526, -0.127292, -0.02592), Y: (0.126478, 0.991486, -0.03096), Z: (0.02964, 0.027419, 0.999184), O: (-54.22896, 32.02344, -28.73787)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 40.3217353820801,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.205111, -0.102555, 0.008204)\",
+			\"ConstantTorque\": \"(0.003315, -0.001647, 0.00313)\",
+			\"GlobalTransform\": \"[X: (0.747899, -0.659008, -0.079717), Y: (0.438951, 0.581062, -0.685338), Z: (0.497964, 0.477572, 0.723848), O: (-39.71353, -65.39386, -23.60799)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 40.6550636291504,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.187627, -0.093814, 0.007505)\",
+			\"ConstantTorque\": \"(0.002959, -0.001033, 0.003089)\",
+			\"GlobalTransform\": \"[X: (0.003405, -0.68965, 0.724135), Y: (0.115493, -0.719022, -0.685323), Z: (0.993302, 0.085966, 0.077202), O: (-29.83189, -10.3013, -74.97118)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 40.9883918762207,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.18207, -0.091035, 0.007283)\",
+			\"ConstantTorque\": \"(0.001171, 0.00059, -0.001565)\",
+			\"GlobalTransform\": \"[X: (0.999987, -0.004772, -0.001809), Y: (0.004779, 0.999982, 0.003569), Z: (0.001792, -0.003578, 0.999992), O: (97.53761, 78.73024, 29.11464)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 41.3383865356445,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.254902, -0.127451, 0.010196)\",
+			\"ConstantTorque\": \"(-0.001191, -0.001605, 0.002598)\",
+			\"GlobalTransform\": \"[X: (-0.237966, 0.934233, -0.265671), Y: (0.050869, -0.261165, -0.963953), Z: (-0.969941, -0.242902, 0.014625), O: (-71.6615, -8.341763, 5.259722)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 41.6717147827148,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.21495, -0.107475, 0.008598)\",
+			\"ConstantTorque\": \"(0.003451, 0.000828, -0.001578)\",
+			\"GlobalTransform\": \"[X: (0.969273, -0.18373, -0.163566), Y: (0.239007, 0.860709, 0.449507), Z: (0.058195, -0.474788, 0.878174), O: (-46.40892, -51.81414, -71.95693)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 42.0050430297852,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.232231, -0.116116, 0.009289)\",
+			\"ConstantTorque\": \"(0.002693, -0.00148, 0.000641)\",
+			\"GlobalTransform\": \"[X: (0.937169, 0.03606, 0.347008), Y: (-0.228549, 0.814953, 0.532557), Z: (-0.263591, -0.578404, 0.77199), O: (-55.73291, 32.36222, -56.14863)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 42.3383712768555,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.235008, -0.117504, 0.0094)\",
+			\"ConstantTorque\": \"(0.002844, -0.000639, -0.000061)\",
+			\"GlobalTransform\": \"[X: (0.902984, -0.428196, -0.03562), Y: (-0.427147, -0.903561, 0.03351), Z: (-0.046534, -0.015044, -0.998803), O: (-54.90678, 40.45785, -14.25879)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 42.6883659362793,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.194745, -0.097372, 0.00779)\",
+			\"ConstantTorque\": \"(0.003936, 0.000984, 0.003098)\",
+			\"GlobalTransform\": \"[X: (0.973361, 0.226112, -0.037977), Y: (-0.206582, 0.936744, 0.28255), Z: (0.099462, -0.267178, 0.958501), O: (-28.13161, 32.08574, -31.51289)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 43.0216941833496,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.229776, -0.114888, 0.009191)\",
+			\"ConstantTorque\": \"(0.00221, 0.002851, 0.003874)\",
+			\"GlobalTransform\": \"[X: (-0.639001, 0.572612, 0.513608), Y: (0.320113, -0.409183, 0.854457), Z: (0.699432, 0.710411, 0.078168), O: (-53.57935, -75.73311, 14.44405)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 43.3550224304199,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.196601, -0.098301, 0.007864)\",
+			\"ConstantTorque\": \"(0.001119, -0.00164, 0.001311)\",
+			\"GlobalTransform\": \"[X: (-0.387743, -0.169693, 0.906013), Y: (-0.325968, -0.894154, -0.306975), Z: (0.862207, -0.414359, 0.291387), O: (-20.24075, 8.893101, -10.25666)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 43.7050170898438,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.260759, -0.130379, 0.01043)\",
+			\"ConstantTorque\": \"(0.00288, 0.003736, -0.001113)\",
+			\"GlobalTransform\": \"[X: (0.511162, 0.12339, -0.850581), Y: (0.56874, 0.693422, 0.44238), Z: (0.644397, -0.709888, 0.284274), O: (-73.5928, -10.13131, 26.22714)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 44.0383453369141,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.183823, -0.091912, 0.007353)\",
+			\"ConstantTorque\": \"(-0.000421, 0.000979, -0.000132)\",
+			\"GlobalTransform\": \"[X: (-0.152772, -0.372109, 0.91553), Y: (-0.600969, 0.770412, 0.212845), Z: (-0.784537, -0.517688, -0.341323), O: (-21.07912, 59.83971, 30.98449)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 44.3716735839844,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.204439, -0.102219, 0.008178)\",
+			\"ConstantTorque\": \"(0.003482, 0.0016, -0.001771)\",
+			\"GlobalTransform\": \"[X: (0.364491, 0.68792, -0.627625), Y: (0.554809, -0.701733, -0.446944), Z: (-0.747886, -0.185305, -0.637439), O: (-33.10632, -48.76689, -31.61098)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 44.7216682434082,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.250494, -0.125247, 0.01002)\",
+			\"ConstantTorque\": \"(0.000268, -0.000152, 0.003125)\",
+			\"GlobalTransform\": \"[X: (0.253797, -0.96711, 0.016899), Y: (0.960915, 0.250097, -0.118721), Z: (0.11059, 0.04637, 0.992784), O: (-62.58643, 16.86826, -55.47052)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 45.0549964904785,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.182914, -0.091457, 0.007317)\",
+			\"ConstantTorque\": \"(0.001408, -0.001448, -0.001748)\",
+			\"GlobalTransform\": \"[X: (0.999976, -0.005341, 0.004405), Y: (0.005322, 0.999977, 0.004307), Z: (-0.004428, -0.004284, 0.999981), O: (103.8378, 72.2666, -51.68725)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 45.3883247375488,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.23656, -0.11828, 0.009462)\",
+			\"ConstantTorque\": \"(0.002367, 0.003738, -0.000079)\",
+			\"GlobalTransform\": \"[X: (0.759406, 0.165586, 0.629193), Y: (0.13898, 0.903464, -0.405508), Z: (-0.6356, 0.39539, 0.663083), O: (-47.59497, 37.2742, -57.0752)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 45.7216529846191,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.219749, -0.109875, 0.00879)\",
+			\"ConstantTorque\": \"(0.00397, 0.001841, -0.00085)\",
+			\"GlobalTransform\": \"[X: (0.950855, 0.21069, 0.226901), Y: (-0.035982, 0.803022, -0.594862), Z: (-0.307538, 0.557464, 0.771139), O: (-42.7419, 15.1035, 24.16482)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 46.0549812316895,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.212065, -0.106033, 0.008483)\",
+			\"ConstantTorque\": \"(0.0014, 0.002248, -0.001831)\",
+			\"GlobalTransform\": \"[X: (0.545848, 0.680696, 0.488573), Y: (-0.340719, 0.713039, -0.612769), Z: (-0.765481, 0.168013, 0.621137), O: (-31.72092, 32.77639, -61.65438)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 46.3883094787598,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.183848, -0.091924, 0.007354)\",
+			\"ConstantTorque\": \"(0.003176, 0.001003, -0.000792)\",
+			\"GlobalTransform\": \"[X: (0.838772, 0.085891, -0.537665), Y: (0.542933, -0.057504, 0.837805), Z: (0.041043, -0.994644, -0.094866), O: (-16.59127, 43.35635, -34.13957)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 46.7216377258301,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.218443, -0.109221, 0.008738)\",
+			\"ConstantTorque\": \"(0.000181, 0.00383, 0.002868)\",
+			\"GlobalTransform\": \"[X: (-0.994119, 0.013584, 0.107436), Y: (0.106916, 0.28077, 0.953802), Z: (-0.017209, 0.959679, -0.280571), O: (-38.76572, 18.03073, -49.43894)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 47.0549659729004,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.224617, -0.112309, 0.008985)\",
+			\"ConstantTorque\": \"(-0.000894, 0.001479, 0.003534)\",
+			\"GlobalTransform\": \"[X: (-0.740702, 0.336788, -0.581322), Y: (-0.650433, -0.576138, 0.494976), Z: (-0.16822, 0.744741, 0.645805), O: (-38.38281, 24.78951, 39.35879)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 47.3882942199707,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.194111, -0.097056, 0.007764)\",
+			\"ConstantTorque\": \"(-0.000303, -0.001299, -0.001521)\",
+			\"GlobalTransform\": \"[X: (0.395277, 0.754365, -0.524108), Y: (-0.635258, 0.636627, 0.437211), Z: (0.663478, 0.160124, 0.73086), O: (-16.92522, 23.34941, -46.64102)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 47.721622467041,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.239422, -0.119711, 0.009577)\",
+			\"ConstantTorque\": \"(-0.000282, 0.002994, -0.000725)\",
+			\"GlobalTransform\": \"[X: (-0.401613, -0.338245, -0.851057), Y: (0.08865, 0.910572, -0.403733), Z: (0.911509, -0.23759, -0.335712), O: (-49.69565, -35.17659, 9.68663)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 48.0549507141113,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.215908, -0.107954, 0.008636)\",
+			\"ConstantTorque\": \"(0.001171, 0.000048, 0.00164)\",
+			\"GlobalTransform\": \"[X: (-0.550451, 0.577468, 0.602938), Y: (-0.747417, -0.66264, -0.047705), Z: (0.371982, -0.476905, 0.796361), O: (-31.27367, -6.508961, 21.66488)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 48.3882789611816,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.196605, -0.098303, 0.007864)\",
+			\"ConstantTorque\": \"(0.001961, 0.001315, -0.001882)\",
+			\"GlobalTransform\": \"[X: (0.950448, -0.228237, -0.211085), Y: (0.276708, 0.930567, 0.239745), Z: (0.14171, -0.286274, 0.94761), O: (-22.27367, -28.22329, -78.63987)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 48.721607208252,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.220891, -0.110446, 0.008836)\",
+			\"ConstantTorque\": \"(-0.000808, 0.000442, 0.003731)\",
+			\"GlobalTransform\": \"[X: (0.943849, -0.329281, 0.02689), Y: (0.326439, 0.942032, 0.077541), Z: (-0.050864, -0.06441, 0.996626), O: (-35.05225, -50.5607, 10.38194)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 49.0549354553223,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.222969, -0.111484, 0.008919)\",
+			\"ConstantTorque\": \"(-0.000621, 0.002497, 0.002345)\",
+			\"GlobalTransform\": \"[X: (0.93452, 0.234862, -0.267418), Y: (-0.252156, 0.967165, -0.031767), Z: (0.251176, 0.097118, 0.963057), O: (-36.13458, 24.31186, -37.78122)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 49.3882637023926,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.206249, -0.103124, 0.00825)\",
+			\"ConstantTorque\": \"(0.00095, 0.003476, 0.000546)\",
+			\"GlobalTransform\": \"[X: (-0.657099, 0.536127, -0.529895), Y: (0.347942, 0.839314, 0.417718), Z: (0.668699, 0.09011, -0.738053), O: (-22.7518, -12.9182, -16.20477)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 49.7215919494629,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.245823, -0.122911, 0.009833)\",
+			\"ConstantTorque\": \"(-0.001232, 0.003982, 0.002135)\",
+			\"GlobalTransform\": \"[X: (-0.08698, -0.710735, 0.698062), Y: (0.188274, 0.676362, 0.712101), Z: (-0.978257, 0.193365, 0.074983), O: (-45.82822, -41.63175, -21.53617)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 50.0549201965332,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.235397, -0.117699, 0.009416)\",
+			\"ConstantTorque\": \"(-0.001888, 0.003413, 0.001776)\",
+			\"GlobalTransform\": \"[X: (0.239418, -0.744776, 0.622887), Y: (0.082706, 0.654857, 0.751214), Z: (-0.967388, -0.128338, 0.218381), O: (-41.26346, -38.87982, -57.26162)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 50.3882484436035,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.230962, -0.115481, 0.009238)\",
+			\"ConstantTorque\": \"(0.003999, 0.001567, 0.003739)\",
+			\"GlobalTransform\": \"[X: (0.891969, -0.364043, 0.268074), Y: (0.446406, 0.802988, -0.394882), Z: (-0.071506, 0.471892, 0.878752), O: (-39.46323, 21.78931, 23.27165)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 50.7215766906738,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.241404, -0.120702, 0.009656)\",
+			\"ConstantTorque\": \"(0.003743, -0.000637, -0.001033)\",
+			\"GlobalTransform\": \"[X: (0.011022, 0.280143, 0.959895), Y: (0.491534, 0.834449, -0.249176), Z: (-0.870788, 0.474568, -0.128503), O: (-42.29825, -21.32444, -16.04452)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 51.0549049377441,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.195837, -0.097919, 0.007833)\",
+			\"ConstantTorque\": \"(0.002337, 0.000227, -0.00104)\",
+			\"GlobalTransform\": \"[X: (0.827546, 0.485605, -0.2817), Y: (-0.324457, 0.004211, -0.945891), Z: (-0.458144, 0.874168, 0.161043), O: (-13.06879, -39.76786, 27.69952)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 51.3882331848145,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.265103, -0.132551, 0.010604)\",
+			\"ConstantTorque\": \"(0.001034, 0.001444, 0.001712)\",
+			\"GlobalTransform\": \"[X: (-0.646951, 0.531601, 0.546676), Y: (0.449252, -0.313562, 0.836572), Z: (0.616139, 0.786816, -0.035964), O: (-54.14969, -62.86616, 33.82562)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 51.7215614318848,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.206991, -0.103495, 0.00828)\",
+			\"ConstantTorque\": \"(0.002643, 0.002474, 0.003012)\",
+			\"GlobalTransform\": \"[X: (-0.291765, 0.85295, 0.43284), Y: (0.258713, -0.365287, 0.894222), Z: (0.920837, 0.372884, -0.114091), O: (-20.01651, -15.92195, -26.48791)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 52.0548896789551,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.20131, -0.100655, 0.008052)\",
+			\"ConstantTorque\": \"(-0.000452, 0.002915, 0.002236)\",
+			\"GlobalTransform\": \"[X: (0.612659, 0.44228, -0.655009), Y: (-0.517917, 0.850686, 0.089976), Z: (0.597002, 0.284116, 0.750245), O: (-13.97644, 52.02413, -35.49399)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 52.3882179260254,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.201706, -0.100853, 0.008068)\",
+			\"ConstantTorque\": \"(0.000953, -0.001143, -0.000741)\",
+			\"GlobalTransform\": \"[X: (-0.110147, -0.314129, -0.942969), Y: (-0.989013, 0.128752, 0.072635), Z: (0.098592, 0.94061, -0.324859), O: (-14.35729, -56.68119, -14.30022)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 52.7215461730957,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.183582, -0.091791, 0.007343)\",
+			\"ConstantTorque\": \"(0.000463, 0.003899, 0.002236)\",
+			\"GlobalTransform\": \"[X: (0.478707, -0.389399, 0.786897), Y: (0.482619, 0.865417, 0.134655), Z: (-0.733429, 0.315311, 0.602213), O: (-1.492096, -42.05294, -18.63564)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 53.054874420166,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.248295, -0.124148, 0.009932)\",
+			\"ConstantTorque\": \"(0.003165, 0.002153, -0.001326)\",
+			\"GlobalTransform\": \"[X: (0.638886, 0.711319, 0.293), Y: (0.058337, 0.334973, -0.94042), Z: (-0.767086, 0.617914, 0.172513), O: (-39.11133, -51.1804, -73.60931)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 53.3882026672363,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.190117, -0.095058, 0.007605)\",
+			\"ConstantTorque\": \"(0.001492, 0.003663, 0.003628)\",
+			\"GlobalTransform\": \"[X: (-0.820642, 0.218436, 0.528045), Y: (0.530092, -0.054119, 0.846211), Z: (0.21342, 0.974349, -0.071379), O: (-8.436058, -15.81399, 22.79525)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 53.7215309143066,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.207635, -0.103817, 0.008305)\",
+			\"ConstantTorque\": \"(-0.000577, 0.002646, 0.002449)\",
+			\"GlobalTransform\": \"[X: (0.325889, -0.717216, 0.615952), Y: (0.558782, 0.671664, 0.486447), Z: (-0.762601, 0.185655, 0.619655), O: (-16.85045, 61.3838, -51.54298)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 54.0715255737305,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.222765, -0.111382, 0.008911)\",
+			\"ConstantTorque\": \"(-0.000673, 0.001354, -0.001169)\",
+			\"GlobalTransform\": \"[X: (0.938831, -0.241947, -0.245069), Y: (0.207084, 0.965216, -0.159608), Z: (0.275161, 0.099095, 0.956278), O: (-26.20714, 0.43475, -27.79811)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 54.4048538208008,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.23027, -0.115135, 0.009211)\",
+			\"ConstantTorque\": \"(0.003052, -0.001045, 0.002989)\",
+			\"GlobalTransform\": \"[X: (0.371906, 0.464234, 0.803849), Y: (-0.864065, -0.143332, 0.482542), Z: (0.33923, -0.874038, 0.347823), O: (-25.80061, 39.18307, -39.24113)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 54.7381820678711,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.198993, -0.099497, 0.00796)\",
+			\"ConstantTorque\": \"(0.001343, 0.002294, 0.001066)\",
+			\"GlobalTransform\": \"[X: (0.998487, 0.023891, -0.049529), Y: (-0.022434, 0.999305, 0.029764), Z: (0.050206, -0.028608, 0.998329), O: (-10.09253, -46.82876, -65.5388)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 55.0715103149414,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.211574, -0.105787, 0.008463)\",
+			\"ConstantTorque\": \"(-0.001691, 0.000364, 0.000952)\",
+			\"GlobalTransform\": \"[X: (0.931055, 0.282814, -0.230548), Y: (-0.364491, 0.750006, -0.551939), Z: (0.016816, 0.597919, 0.80138), O: (-11.75029, 26.46669, -63.24387)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 55.4048385620117,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.226832, -0.113416, 0.009073)\",
+			\"ConstantTorque\": \"(0.00295, -0.001661, 0.003637)\",
+			\"GlobalTransform\": \"[X: (0.154513, 0.437721, 0.885735), Y: (-0.956041, -0.1599, 0.245799), Z: (0.24922, -0.884778, 0.393772), O: (-24.8458, 48.42645, 36.97199)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 55.738166809082,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.24549, -0.122745, 0.00982)\",
+			\"ConstantTorque\": \"(0.000516, 0.003078, 0.001445)\",
+			\"GlobalTransform\": \"[X: (0.862173, 0.234044, -0.449313), Y: (-0.196146, 0.971933, 0.129895), Z: (0.467103, -0.023861, 0.883881), O: (-32.03699, 34.83564, -73.06288)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 56.0714950561523,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.209281, -0.104641, 0.008371)\",
+			\"ConstantTorque\": \"(-0.000601, -0.000966, 0.000184)\",
+			\"GlobalTransform\": \"[X: (-0.193831, 0.839186, 0.50813), Y: (0.593502, 0.512725, -0.620378), Z: (-0.781143, 0.181328, -0.597441), O: (-8.961388, -17.87477, 12.11874)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 56.4048233032227,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.23404, -0.11702, 0.009362)\",
+			\"ConstantTorque\": \"(0.003376, 0.000062, 0.003476)\",
+			\"GlobalTransform\": \"[X: (0.811014, -0.552123, 0.193433), Y: (0.558699, 0.632882, -0.536018), Z: (0.173527, 0.542789, 0.821747), O: (-21.02291, 36.96626, 5.180614)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 56.738151550293,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.205122, -0.102561, 0.008205)\",
+			\"ConstantTorque\": \"(-0.001398, -0.00054, -0.000579)\",
+			\"GlobalTransform\": \"[X: (0.759551, -0.071083, 0.646553), Y: (0.649933, 0.122497, -0.750054), Z: (-0.025885, 0.98992, 0.139241), O: (-4.97422, -48.84331, -41.82538)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 57.0714797973633,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.212743, -0.106372, 0.00851)\",
+			\"ConstantTorque\": \"(-0.000533, 0.000858, 0.003363)\",
+			\"GlobalTransform\": \"[X: (0.940795, 0.326096, -0.092557), Y: (-0.330592, 0.943013, -0.037883), Z: (0.074929, 0.066239, 0.994986), O: (-8.838127, 11.92393, 37.8561)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 57.4048080444336,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.228931, -0.114465, 0.009157)\",
+			\"ConstantTorque\": \"(0.002424, -0.000347, 0.002311)\",
+			\"GlobalTransform\": \"[X: (0.436317, -0.763172, 0.47665), Y: (0.589695, -0.157582, -0.792103), Z: (0.679623, 0.626686, 0.381284), O: (-18.87619, -5.925365, 44.24114)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 57.7381362915039,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.266309, -0.133154, 0.010652)\",
+			\"ConstantTorque\": \"(0.000207, 0.001621, -0.001012)\",
+			\"GlobalTransform\": \"[X: (0.390185, 0.542222, 0.744145), Y: (-0.430262, 0.82191, -0.373282), Z: (-0.814022, -0.174528, 0.553994), O: (-38.14291, -6.778019, 25.49834)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 58.0714645385742,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.248733, -0.124366, 0.009949)\",
+			\"ConstantTorque\": \"(-0.000259, 0.002862, -0.001429)\",
+			\"GlobalTransform\": \"[X: (-0.447575, -0.50098, -0.74074), Y: (0.291151, 0.701569, -0.650409), Z: (0.845522, -0.506774, -0.168144), O: (-31.13403, -33.03385, -64.59923)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 58.4047927856445,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.204444, -0.102222, 0.008178)\",
+			\"ConstantTorque\": \"(0.003041, -0.000019, -0.000965)\",
+			\"GlobalTransform\": \"[X: (0.909382, -0.307971, -0.279605), Y: (0.296927, 0.009866, 0.954849), Z: (-0.291307, -0.951345, 0.100417), O: (-0.586731, -16.5499, 40.3952)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 58.7381210327148,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.219366, -0.109683, 0.008775)\",
+			\"ConstantTorque\": \"(0.00336, 0.001357, 0.000123)\",
+			\"GlobalTransform\": \"[X: (0.991657, 0.031928, -0.124884), Y: (0.009059, 0.949181, 0.314601), Z: (0.128582, -0.313108, 0.940973), O: (-8.795639, -22.61476, 27.30011)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 59.0714492797852,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.236736, -0.118368, 0.009469)\",
+			\"ConstantTorque\": \"(0.002704, 0.000603, 0.000346)\",
+			\"GlobalTransform\": \"[X: (0.888777, 0.450607, 0.08384), Y: (0.299935, -0.710113, 0.637008), Z: (0.346576, -0.541012, -0.766284), O: (-16.80962, -30.17476, 7.658962)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 59.4047775268555,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.189697, -0.094849, 0.007588)\",
+			\"ConstantTorque\": \"(-0.001812, -0.001584, 0.003333)\",
+			\"GlobalTransform\": \"[X: (0.829411, -0.462887, -0.312751), Y: (0.534812, 0.819694, 0.205127), Z: (0.161409, -0.337397, 0.927421), O: (2.014641, -0.073807, -49.09829)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 59.7381057739258,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.233291, -0.116646, 0.009332)\",
+			\"ConstantTorque\": \"(0.001795, 0.00264, 0.000354)\",
+			\"GlobalTransform\": \"[X: (0.800191, 0.211195, -0.56133), Y: (0.05571, 0.905725, 0.420188), Z: (0.597152, -0.367502, 0.712988), O: (-16.67796, -36.01315, -40.6253)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 60.0881004333496,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.1969, -0.09845, 0.007876)\",
+			\"ConstantTorque\": \"(-0.001724, -0.000942, 0.002823)\",
+			\"GlobalTransform\": \"[X: (-0.493856, 0.195361, -0.847314), Y: (0.352651, -0.845702, -0.400531), Z: (-0.794823, -0.49661, 0.348761), O: (5.420746, 51.74447, 42.7256)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 60.4214286804199,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.200871, -0.100436, 0.008035)\",
+			\"ConstantTorque\": \"(0.002115, -0.000917, 0.000501)\",
+			\"GlobalTransform\": \"[X: (0.622202, -0.590807, 0.513626), Y: (-0.751172, -0.635326, 0.179169), Z: (0.220466, -0.497301, -0.839099), O: (3.667435, 23.60298, 23.01993)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 60.7547569274902,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.181523, -0.090761, 0.007261)\",
+			\"ConstantTorque\": \"(0.003652, -0.001487, 0.002363)\",
+			\"GlobalTransform\": \"[X: (0.999964, 0.007183, 0.004576), Y: (-0.007234, 0.999912, 0.011126), Z: (-0.004495, -0.011158, 0.999928), O: (103.6928, 73.71325, 19.68362)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 61.0880851745605,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.208273, -0.104136, 0.008331)\",
+			\"ConstantTorque\": \"(-0.00178, -0.001938, 0.002739)\",
+			\"GlobalTransform\": \"[X: (0.961008, 0.237042, 0.142388), Y: (-0.213146, 0.963044, -0.164669), Z: (-0.17616, 0.127899, 0.976017), O: (-1.402534, 69.71256, -56.70046)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 61.4214134216309,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.253682, -0.126841, 0.010147)\",
+			\"ConstantTorque\": \"(0.000533, 0.002414, 0.003608)\",
+			\"GlobalTransform\": \"[X: (0.924086, 0.322756, -0.204679), Y: (-0.312383, 0.946408, 0.082031), Z: (0.220186, -0.011866, 0.975386), O: (-21.71319, 53.48948, -57.64455)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 61.7547416687012,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.186187, -0.093094, 0.007447)\",
+			\"ConstantTorque\": \"(-0.000255, 0.003031, 0.000945)\",
+			\"GlobalTransform\": \"[X: (0.489509, -0.298368, 0.819364), Y: (0.220187, 0.951484, 0.214933), Z: (-0.843741, 0.075201, 0.531456), O: (11.01717, -6.076054, -72.91942)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 62.0880699157715,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.265392, -0.132696, 0.010616)\",
+			\"ConstantTorque\": \"(-0.000009, 0.003385, 0.002714)\",
+			\"GlobalTransform\": \"[X: (0.76105, -0.406198, 0.505773), Y: (0.405395, 0.906492, 0.118016), Z: (-0.506417, 0.115222, 0.854556), O: (-26.43623, 10.41806, -12.46624)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 62.4213981628418,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.222648, -0.111324, 0.008906)\",
+			\"ConstantTorque\": \"(-0.001064, 0.001939, 0.002151)\",
+			\"GlobalTransform\": \"[X: (-0.680317, -0.706822, -0.193835), Y: (-0.119614, -0.153849, 0.980828), Z: (-0.723092, 0.690459, 0.020121), O: (-4.173798, 10.40179, 37.2345)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 62.7547264099121,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.260869, -0.130434, 0.010435)\",
+			\"ConstantTorque\": \"(0.001151, 0.001232, -0.001588)\",
+			\"GlobalTransform\": \"[X: (0.928168, -0.018285, 0.371711), Y: (0.232598, 0.808188, -0.541046), Z: (-0.290519, 0.588641, 0.754387), O: (-21.31265, 10.03736, -7.265884)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 63.0880546569824,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.236396, -0.118198, 0.009456)\",
+			\"ConstantTorque\": \"(-0.000174, -0.000301, -0.000632)\",
+			\"GlobalTransform\": \"[X: (-0.143217, -0.733652, 0.664262), Y: (0.978054, -0.002293, 0.20834), Z: (-0.151326, 0.679522, 0.717879), O: (-6.885765, -34.72387, -40.96265)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 63.4380493164062,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.258915, -0.129457, 0.010357)\",
+			\"ConstantTorque\": \"(-0.001094, 0.001242, 0.003668)\",
+			\"GlobalTransform\": \"[X: (0.786295, 0.563037, -0.254419), Y: (-0.60176, 0.791242, -0.108725), Z: (0.140091, 0.238589, 0.960963), O: (-17.91194, 37.45164, 41.37708)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 63.7713775634766,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.198047, -0.099024, 0.007922)\",
+			\"ConstantTorque\": \"(0.001406, -0.000387, 0.002334)\",
+			\"GlobalTransform\": \"[X: (0.607894, -0.786955, 0.105672), Y: (0.710728, 0.479949, -0.51431), Z: (0.354022, 0.38775, 0.851069), O: (8.725876, 24.14062, 41.81514)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 64.1047286987305,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.231417, -0.115708, 0.009257)\",
+			\"ConstantTorque\": \"(0.002727, -0.001729, -0.001469)\",
+			\"GlobalTransform\": \"[X: (0.775673, -0.574937, 0.260343), Y: (0.164006, 0.581947, 0.796517), Z: (-0.609453, -0.575139, 0.545694), O: (-5.054733, -52.80604, 27.47349)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 64.4548034667969,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.258549, -0.129274, 0.010342)\",
+			\"ConstantTorque\": \"(0.003689, -0.001468, 0.001398)\",
+			\"GlobalTransform\": \"[X: (0.734342, -0.02128, 0.678446), Y: (-0.678682, -0.006043, 0.734407), Z: (-0.011529, -0.999755, -0.01888), O: (-16.23913, 9.753178, 23.73063)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 64.7882080078125,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.264282, -0.132141, 0.010571)\",
+			\"ConstantTorque\": \"(0.0018, 0.000765, 0.002838)\",
+			\"GlobalTransform\": \"[X: (0.890787, -0.41659, 0.181526), Y: (0.451393, 0.857227, -0.247803), Z: (-0.052377, 0.302679, 0.951652), O: (-16.31467, 55.78741, -0.00699)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 65.1216125488281,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.262911, -0.131455, 0.010516)\",
+			\"ConstantTorque\": \"(0.00378, -0.000425, -0.000254)\",
+			\"GlobalTransform\": \"[X: (0.966249, -0.225457, -0.124628), Y: (-0.216671, -0.972943, 0.080225), Z: (-0.139343, -0.050515, -0.988955), O: (-16.40906, 54.22285, -60.43493)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 65.4716873168945,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.179514, -0.089757, 0.007181)\",
+			\"ConstantTorque\": \"(0.000118, 0.001605, 0.001576)\",
+			\"GlobalTransform\": \"[X: (0.999976, 0.004809, -0.004896), Y: (-0.004807, 0.999988, 0.000372), Z: (0.004898, -0.000348, 0.999988), O: (98.53625, 102.7299, 18.23086)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 65.8050918579102,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.223177, -0.111589, 0.008927)\",
+			\"ConstantTorque\": \"(0.00368, 0.001118, 0.000026)\",
+			\"GlobalTransform\": \"[X: (0.835243, 0.544095, -0.079563), Y: (0.539795, -0.783709, 0.307281), Z: (0.104836, -0.299603, -0.948287), O: (6.320641, 15.36699, -30.96819)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 66.1384963989258,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.235084, -0.117542, 0.009403)\",
+			\"ConstantTorque\": \"(-0.001172, 0.00168, 0.000162)\",
+			\"GlobalTransform\": \"[X: (-0.262627, -0.834271, -0.484788), Y: (-0.911613, 0.379185, -0.158686), Z: (0.316211, 0.400263, -0.860116), O: (-3.56826, -35.37536, -7.105274)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 66.4885711669922,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.232219, -0.11611, 0.009289)\",
+			\"ConstantTorque\": \"(0.002406, 0.001703, 0.002576)\",
+			\"GlobalTransform\": \"[X: (-0.227557, 0.681229, 0.695805), Y: (0.373424, -0.598873, 0.708453), Z: (0.899318, 0.421044, -0.11811), O: (-2.028938, -22.68754, -19.95139)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 66.8219757080078,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.246067, -0.123034, 0.009843)\",
+			\"ConstantTorque\": \"(-0.000657, 0.003463, 0.001167)\",
+			\"GlobalTransform\": \"[X: (0.881452, 0.13044, -0.453902), Y: (-0.170844, 0.98408, -0.04897), Z: (0.440289, 0.120711, 0.889705), O: (-8.379288, -27.41256, -71.83907)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 67.1720504760742,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.222394, -0.111197, 0.008896)\",
+			\"ConstantTorque\": \"(-0.001773, -0.001884, 0.000526)\",
+			\"GlobalTransform\": \"[X: (0.316801, 0.7899, 0.525067), Y: (0.403325, 0.388851, -0.828326), Z: (-0.858468, 0.474187, -0.195398), O: (7.325813, 73.44083, -55.33611)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 67.5054550170898,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.184165, -0.092083, 0.007367)\",
+			\"ConstantTorque\": \"(0.003683, 0.000085, 0.003504)\",
+			\"GlobalTransform\": \"[X: (0.684157, 0.657321, 0.316003), Y: (-0.641169, 0.335563, 0.690145), Z: (0.347608, -0.674779, 0.651032), O: (26.78654, 24.0934, -56.34492)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 67.8388595581055,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.180592, -0.090296, 0.007224)\",
+			\"ConstantTorque\": \"(0.001497, 0.001778, -0.000241)\",
+			\"GlobalTransform\": \"[X: (0.999985, -0.000723, -0.005426), Y: (0.000747, 0.999989, 0.004565), Z: (0.005422, -0.004569, 0.999975), O: (102.2211, 118.8401, -66.75813)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 68.1889343261719,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.198708, -0.099354, 0.007948)\",
+			\"ConstantTorque\": \"(0.001385, -0.001908, -0.001621)\",
+			\"GlobalTransform\": \"[X: (-0.508822, -0.500124, -0.700697), Y: (-0.772132, -0.09479, 0.628353), Z: (-0.380673, 0.86075, -0.33793), O: (20.573, -13.30749, -9.827314)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 68.5223388671875,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.260061, -0.130031, 0.010402)\",
+			\"ConstantTorque\": \"(0.001427, 0.002394, 0.00301)\",
+			\"GlobalTransform\": \"[X: (-0.723192, 0.602605, 0.337433), Y: (0.193137, -0.292625, 0.93652), Z: (0.663093, 0.742454, 0.095238), O: (-7.147179, 22.41101, -77.0796)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 68.8557434082031,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.199963, -0.099981, 0.007999)\",
+			\"ConstantTorque\": \"(0.001073, 0.003226, -0.0006)\",
+			\"GlobalTransform\": \"[X: (-0.583955, 0.394944, -0.709236), Y: (0.623451, 0.777735, -0.080235), Z: (0.519909, -0.489027, -0.70039), O: (21.754, 13.61859, 15.15614)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 69.2058181762695,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.253546, -0.126773, 0.010142)\",
+			\"ConstantTorque\": \"(0.002632, -0.000542, 0.000684)\",
+			\"GlobalTransform\": \"[X: (0.875576, 0.005236, 0.483053), Y: (-0.471545, -0.20796, 0.85697), Z: (0.104943, -0.978123, -0.179616), O: (2.165436, 39.30618, 42.25525)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 69.5392227172852,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.224758, -0.112379, 0.00899)\",
+			\"ConstantTorque\": \"(0.00026, -0.000583, 0.002366)\",
+			\"GlobalTransform\": \"[X: (0.080595, -0.986576, -0.142027), Y: (0.939713, 0.122717, -0.319186), Z: (0.332331, -0.10774, 0.936989), O: (12.87325, 56.29808, 4.783421)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 69.8726272583008,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.195948, -0.097974, 0.007838)\",
+			\"ConstantTorque\": \"(0.000965, 0.000071, 0.001535)\",
+			\"GlobalTransform\": \"[X: (0.331012, -0.824622, 0.458726), Y: (0.863201, 0.068227, -0.500228), Z: (0.381201, 0.561555, 0.734399), O: (22.98326, -24.25554, -54.47325)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 70.2227020263672,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.194155, -0.097077, 0.007766)\",
+			\"ConstantTorque\": \"(0.002338, 0.000623, 0.003355)\",
+			\"GlobalTransform\": \"[X: (0.355129, 0.890561, 0.284225), Y: (-0.729257, 0.073699, 0.680259), Z: (0.584865, -0.448853, 0.675621), O: (24.366, -5.451305, -7.377724)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 70.5561065673828,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.243448, -0.121724, 0.009738)\",
+			\"ConstantTorque\": \"(0.003199, 0.000323, 0.002548)\",
+			\"GlobalTransform\": \"[X: (0.865338, 0.48965, 0.106926), Y: (-0.447462, 0.658684, 0.604908), Z: (0.225763, -0.571295, 0.789083), O: (6.763199, -43.52368, -33.31134)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 70.9061813354492,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.238729, -0.119365, 0.009549)\",
+			\"ConstantTorque\": \"(-0.000767, 0.003046, 0.001124)\",
+			\"GlobalTransform\": \"[X: (0.948091, -0.121505, 0.293871), Y: (0.098487, 0.990881, 0.091953), Z: (-0.302364, -0.058238, 0.951412), O: (10.6514, -7.142857, -0.577156)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 71.2395858764648,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.215167, -0.107584, 0.008607)\",
+			\"ConstantTorque\": \"(0.002834, 0.003321, -0.000554)\",
+			\"GlobalTransform\": \"[X: (-0.161059, 0.94092, -0.297874), Y: (0.986659, 0.146243, -0.071532), Z: (-0.023743, -0.305421, -0.951921), O: (20.09737, 50.72797, -9.178322)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 71.5729904174805,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.181793, -0.090897, 0.007272)\",
+			\"ConstantTorque\": \"(0.001054, 0.0011, -0.001156)\",
+			\"GlobalTransform\": \"[X: (0.999988, -0.003522, -0.003362), Y: (0.003533, 0.999989, 0.00321), Z: (0.003351, -0.003222, 0.999989), O: (99.38097, 61.68427, -13.72603)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 71.9063949584961,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.264217, -0.132109, 0.010569)\",
+			\"ConstantTorque\": \"(0.003013, 0.003191, 0.002938)\",
+			\"GlobalTransform\": \"[X: (-0.130085, 0.167397, 0.97727), Y: (0.987738, -0.063934, 0.14243), Z: (0.086323, 0.983814, -0.157027), O: (0.953873, -4.396778, -55.65631)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 72.2397994995117,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.254278, -0.127139, 0.010171)\",
+			\"ConstantTorque\": \"(0.002717, 0.003633, -0.001415)\",
+			\"GlobalTransform\": \"[X: (0.564942, 0.560991, 0.605086), Y: (0.004034, 0.731435, -0.681899), Z: (-0.825121, 0.387674, 0.410956), O: (2.454155, 40.9624, -25.64319)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 72.5732040405273,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.220725, -0.110362, 0.008829)\",
+			\"ConstantTorque\": \"(-0.001734, -0.001417, 0.003909)\",
+			\"GlobalTransform\": \"[X: (-0.529794, 0.742706, -0.40952), Y: (-0.307852, -0.618321, -0.723122), Z: (-0.790282, -0.257035, 0.556226), O: (21.03355, 30.26864, -54.67039)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 72.906608581543,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.22084, -0.11042, 0.008834)\",
+			\"ConstantTorque\": \"(0.003237, 0.00202, -0.001635)\",
+			\"GlobalTransform\": \"[X: (0.822451, 0.501613, 0.26825), Y: (-0.157856, 0.65432, -0.739559), Z: (-0.546494, 0.565906, 0.617329), O: (15.85036, -16.59622, -37.46995)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 73.2400131225586,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.193944, -0.096972, 0.007758)\",
+			\"ConstantTorque\": \"(-0.000976, -0.000656, 0.003138)\",
+			\"GlobalTransform\": \"[X: (-0.335284, -0.748699, -0.571869), Y: (0.915104, -0.403122, -0.008747), Z: (-0.223984, -0.526253, 0.820298), O: (29.38396, 68.90592, 6.306845)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 73.5734176635742,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.244643, -0.122321, 0.009786)\",
+			\"ConstantTorque\": \"(0.000489, -0.000708, -0.000945)\",
+			\"GlobalTransform\": \"[X: (0.232466, 0.545174, -0.805447), Y: (-0.926103, 0.377078, -0.01206), Z: (0.297142, 0.74873, 0.592545), O: (9.065247, -23.19426, 28.87611)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 73.9068222045898,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.223187, -0.111593, 0.008927)\",
+			\"ConstantTorque\": \"(0.003988, -0.00127, 0.000162)\",
+			\"GlobalTransform\": \"[X: (0.898472, -0.352199, -0.262113), Y: (-0.275252, 0.013225, -0.961281), Z: (0.342029, 0.935832, -0.085061), O: (21.15623, 19.84312, -42.85806)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 74.2402267456055,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.179492, -0.089746, 0.00718)\",
+			\"ConstantTorque\": \"(0.00343, 0.000238, 0.000649)\",
+			\"GlobalTransform\": \"[X: (0.999998, 0.001985, -0.000715), Y: (-0.001977, 0.999943, 0.010463), Z: (0.000736, -0.010462, 0.999945), O: (104.4092, 66.72261, -65.51554)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 74.5736312866211,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.221731, -0.110865, 0.008869)\",
+			\"ConstantTorque\": \"(0.002778, 0.003263, 0.001406)\",
+			\"GlobalTransform\": \"[X: (0.95222, 0.154303, -0.263568), Y: (-0.085682, 0.963296, 0.254399), Z: (0.293149, -0.219661, 0.930491), O: (26.30996, 17.5924, -25.32665)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 74.9070358276367,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.183596, -0.091798, 0.007344)\",
+			\"ConstantTorque\": \"(-0.000988, -0.001709, 0.003939)\",
+			\"GlobalTransform\": \"[X: (0.688538, -0.63345, -0.353068), Y: (0.690543, 0.721391, 0.052397), Z: (0.22151, -0.279886, 0.934129), O: (38.91983, 92.94402, -60.87335)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 75.2404403686523,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.222506, -0.111253, 0.0089)\",
+			\"ConstantTorque\": \"(-0.000729, 0.000236, 0.001444)\",
+			\"GlobalTransform\": \"[X: (0.643945, 0.705948, -0.29491), Y: (-0.763081, 0.564852, -0.314085), Z: (-0.055147, 0.427293, 0.90243), O: (27.99355, -38.35154, -45.86365)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 75.573844909668,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.195668, -0.097834, 0.007827)\",
+			\"ConstantTorque\": \"(0.001772, 0.000418, -0.001354)\",
+			\"GlobalTransform\": \"[X: (0.990298, 0.135844, 0.029275), Y: (-0.128679, 0.975969, -0.17586), Z: (-0.052461, 0.170387, 0.98398), O: (34.2271, -6.98064, -43.74211)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 75.9072494506836,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.248925, -0.124462, 0.009957)\",
+			\"ConstantTorque\": \"(-0.000289, 0.00108, 0.000271)\",
+			\"GlobalTransform\": \"[X: (-0.87076, -0.454023, -0.188788), Y: (-0.489384, 0.76293, 0.422422), Z: (-0.047758, 0.460218, -0.886521), O: (18.18814, 3.838593, -12.39717)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 76.2406539916992,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.258824, -0.129412, 0.010353)\",
+			\"ConstantTorque\": \"(-0.000463, 0.000732, 0.001335)\",
+			\"GlobalTransform\": \"[X: (0.971844, 0.202348, -0.120725), Y: (-0.210585, 0.975747, -0.059768), Z: (0.105704, 0.083508, 0.990885), O: (15.51973, -31.51365, -55.3494)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 76.5740585327148,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.1854, -0.0927, 0.007416)\",
+			\"ConstantTorque\": \"(0.002587, 0.001903, 0.002931)\",
+			\"GlobalTransform\": \"[X: (-0.288215, 0.449749, 0.845375), Y: (0.589267, -0.612576, 0.526797), Z: (0.754782, 0.649982, -0.088469), O: (37.37806, 41.39249, -59.564)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 76.9074630737305,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.244572, -0.122286, 0.009783)\",
+			\"ConstantTorque\": \"(0.000285, 0.002943, 0.001862)\",
+			\"GlobalTransform\": \"[X: (-0.757772, 0.461797, -0.461004), Y: (-0.2189, 0.485651, 0.846301), Z: (0.614706, 0.742218, -0.266926), O: (19.50388, 42.16097, -21.7929)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 77.2408676147461,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.249331, -0.124665, 0.009973)\",
+			\"ConstantTorque\": \"(0.003829, 0.003317, 0.000355)\",
+			\"GlobalTransform\": \"[X: (0.39549, 0.754027, -0.524434), Y: (0.626058, 0.196475, 0.754618), Z: (0.672041, -0.62677, -0.394361), O: (22.02185, 51.67829, -0.871305)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 77.5742721557617,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.217389, -0.108694, 0.008696)\",
+			\"ConstantTorque\": \"(0.001791, 0.001576, -0.000436)\",
+			\"GlobalTransform\": \"[X: (0.998314, 0.017253, 0.055417), Y: (-0.013693, 0.997857, -0.063987), Z: (-0.056402, 0.063121, 0.996411), O: (34.37758, 22.70248, 19.05984)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 77.9076766967773,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.253424, -0.126712, 0.010137)\",
+			\"ConstantTorque\": \"(0.002046, 0.001103, 0.001011)\",
+			\"GlobalTransform\": \"[X: (0.947662, 0.263015, -0.180995), Y: (-0.157463, 0.878176, 0.451678), Z: (0.277743, -0.399538, 0.873629), O: (23.8638, 76.34949, -48.2026)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 78.241081237793,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.230855, -0.115427, 0.009234)\",
+			\"ConstantTorque\": \"(0.003034, 0.003102, 0.000364)\",
+			\"GlobalTransform\": \"[X: (0.479822, 0.585264, -0.653634), Y: (0.418286, 0.502284, 0.756801), Z: (0.771238, -0.636536, -0.003801), O: (30.11192, 49.82445, -53.63055)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 78.5744857788086,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.185044, -0.092522, 0.007402)\",
+			\"ConstantTorque\": \"(0.003628, 0.002874, -0.000384)\",
+			\"GlobalTransform\": \"[X: (0.234323, 0.971437, 0.037467), Y: (0.927614, -0.211888, -0.30763), Z: (-0.290904, 0.10684, -0.950768), O: (43.35891, 71.22359, -30.42415)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 78.9078903198242,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.240171, -0.120086, 0.009607)\",
+			\"ConstantTorque\": \"(0.000877, -0.001747, 0.003706)\",
+			\"GlobalTransform\": \"[X: (0.945161, -0.300236, -0.128567), Y: (0.29023, 0.952622, -0.090982), Z: (0.149792, 0.048678, 0.987518), O: (27.32617, 2.01408, -72.93663)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 79.2579650878906,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.255766, -0.127883, 0.010231)\",
+			\"ConstantTorque\": \"(-0.001327, 0.003209, 0.000024)\",
+			\"GlobalTransform\": \"[X: (0.947758, -0.019198, -0.318413), Y: (-0.024018, 0.991059, -0.131245), Z: (0.318085, 0.132036, 0.938823), O: (21.56776, 66.27252, -4.194294)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 79.5913696289062,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.257969, -0.128985, 0.010319)\",
+			\"ConstantTorque\": \"(0.003582, 0.001379, 0.003809)\",
+			\"GlobalTransform\": \"[X: (0.447365, 0.870677, 0.204418), Y: (-0.537906, 0.07934, 0.839263), Z: (0.714508, -0.485414, 0.503836), O: (26.82437, 31.62103, 37.93533)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 79.9247741699219,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.202884, -0.101442, 0.008115)\",
+			\"ConstantTorque\": \"(0.00258, 0.001272, 0.001618)\",
+			\"GlobalTransform\": \"[X: (0.665194, -0.226303, 0.71155), Y: (0.744886, 0.266978, -0.611448), Z: (-0.051596, 0.936755, 0.346162), O: (43.98806, 13.78873, -48.50511)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 80.2581787109375,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.189207, -0.094603, 0.007568)\",
+			\"ConstantTorque\": \"(-0.001544, 0.00278, 0.001805)\",
+			\"GlobalTransform\": \"[X: (0.727434, 0.26073, -0.634712), Y: (-0.473741, 0.859996, -0.189675), Z: (0.496396, 0.438665, 0.749109), O: (41.44551, 16.16856, -74.43465)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 80.5915832519531,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.26092, -0.13046, 0.010437)\",
+			\"ConstantTorque\": \"(-0.000904, 0.003181, 0.001772)\",
+			\"GlobalTransform\": \"[X: (0.381568, 0.309585, -0.870955), Y: (-0.577775, 0.815371, 0.036703), Z: (0.721514, 0.489211, 0.48999), O: (21.81129, -1.620312, 28.022)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 80.9249877929688,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.236338, -0.118169, 0.009454)\",
+			\"ConstantTorque\": \"(0.003934, 0.000725, 0.002841)\",
+			\"GlobalTransform\": \"[X: (0.325752, 0.489699, 0.808752), Y: (-0.042437, -0.846975, 0.529936), Z: (0.944502, -0.206948, -0.255123), O: (35.10417, 75.7103, -8.189124)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 81.2583923339844,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.214397, -0.107198, 0.008576)\",
+			\"ConstantTorque\": \"(0.001218, -0.001271, 0.002367)\",
+			\"GlobalTransform\": \"[X: (0.305731, 0.642712, 0.70246), Y: (-0.940616, 0.318218, 0.118231), Z: (-0.147547, -0.696892, 0.701835), O: (36.31754, 91.97054, -42.49467)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 81.591796875,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.247678, -0.123839, 0.009907)\",
+			\"ConstantTorque\": \"(0.001039, -0.000354, 0.003097)\",
+			\"GlobalTransform\": \"[X: (-0.755652, -0.358172, 0.548363), Y: (0.225186, -0.928264, -0.296), Z: (0.615045, -0.10019, 0.782101), O: (31.71514, 21.65656, 29.12534)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 81.9252014160156,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.251205, -0.125603, 0.010048)\",
+			\"ConstantTorque\": \"(0.001456, 0.000093, -0.000783)\",
+			\"GlobalTransform\": \"[X: (0.79893, 0.513909, -0.312424), Y: (-0.426023, 0.116907, -0.897127), Z: (-0.424517, 0.849842, 0.312337), O: (33.73878, -23.05175, -1.677782)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 82.2586059570312,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.2549, -0.12745, 0.010196)\",
+			\"ConstantTorque\": \"(0.000751, -0.001097, -0.001901)\",
+			\"GlobalTransform\": \"[X: (-0.744947, -0.555828, -0.36893), Y: (-0.041136, -0.513692, 0.856988), Z: (-0.665854, 0.653587, 0.359808), O: (31.55512, 8.692097, -10.92527)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 82.5920104980469,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.253194, -0.126597, 0.010128)\",
+			\"ConstantTorque\": \"(-0.001744, -0.000537, 0.002226)\",
+			\"GlobalTransform\": \"[X: (0.99988, 0.015053, 0.003534), Y: (-0.01501, 0.999818, -0.011796), Z: (-0.003711, 0.011742, 0.999924), O: (34.99173, 30.90847, 16.82171)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 82.9254150390625,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.255579, -0.12779, 0.010223)\",
+			\"ConstantTorque\": \"(0.0022, 0.003976, 0.0031)\",
+			\"GlobalTransform\": \"[X: (-0.24488, -0.065631, 0.967329), Y: (0.922188, 0.292262, 0.253282), Z: (-0.299336, 0.954084, -0.011045), O: (30.57405, -17.73387, 25.58755)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 83.2588195800781,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.182624, -0.091312, 0.007305)\",
+			\"ConstantTorque\": \"(0.003109, -0.001958, 0.000725)\",
+			\"GlobalTransform\": \"[X: (0.99998, 0.002182, 0.005984), Y: (-0.002239, 0.999953, 0.009477), Z: (-0.005963, -0.009491, 0.999937), O: (104.9488, 120.6765, 1.648218)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 83.5922241210938,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.206616, -0.103308, 0.008265)\",
+			\"ConstantTorque\": \"(0.003231, 0.002027, 0.001715)\",
+			\"GlobalTransform\": \"[X: (0.703538, 0.670842, -0.234533), Y: (-0.120217, 0.43761, 0.891092), Z: (0.700415, -0.598723, 0.388522), O: (44.17083, 43.26395, -14.4539)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 83.9256286621094,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.229512, -0.114756, 0.00918)\",
+			\"ConstantTorque\": \"(0.00127, 0.002138, 0.001931)\",
+			\"GlobalTransform\": \"[X: (0.74341, 0.525699, -0.4135), Y: (-0.35784, 0.834932, 0.418138), Z: (0.565059, -0.162881, 0.808813), O: (41.17956, 6.27314, -70.48547)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 84.259033203125,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.190907, -0.095454, 0.007636)\",
+			\"ConstantTorque\": \"(0.001385, 0.003577, 0.000298)\",
+			\"GlobalTransform\": \"[X: (0.267361, 0.205128, 0.94151), Y: (0.358149, 0.885928, -0.294722), Z: (-0.894566, 0.415998, 0.163396), O: (49.02933, 55.5052, -43.74022)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 84.5924377441406,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.180198, -0.090099, 0.007208)\",
+			\"ConstantTorque\": \"(0.002181, 0.00054, 0.001697)\",
+			\"GlobalTransform\": \"[X: (0.999985, 0.005181, -0.001629), Y: (-0.00517, 0.999964, 0.006657), Z: (0.001664, -0.006649, 0.999977), O: (101.9567, 46.11454, -7.800667)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 84.9258422851562,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.214005, -0.107002, 0.00856)\",
+			\"ConstantTorque\": \"(0.002343, 0.003346, 0.002402)\",
+			\"GlobalTransform\": \"[X: (-0.494676, 0.585772, 0.642002), Y: (0.79569, 0.008162, 0.605649), Z: (0.349532, 0.810435, -0.470131), O: (47.94672, 71.20952, -30.71053)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 85.2592468261719,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.220349, -0.110175, 0.008814)\",
+			\"ConstantTorque\": \"(-0.00182, 0.003751, -0.001167)\",
+			\"GlobalTransform\": \"[X: (0.876857, -0.196266, -0.438863), Y: (0.087341, 0.962715, -0.25603), Z: (0.47275, 0.186171, 0.861306), O: (43.57236, 97.79797, -41.11932)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 85.5926513671875,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.186513, -0.093256, 0.007461)\",
+			\"ConstantTorque\": \"(0.001437, -0.000737, 0.000663)\",
+			\"GlobalTransform\": \"[X: (0.451649, -0.861848, 0.230718), Y: (-0.320431, -0.398034, -0.859589), Z: (0.832669, 0.314303, -0.455935), O: (53.41189, -12.7319, -7.873013)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 85.9260559082031,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.258325, -0.129163, 0.010333)\",
+			\"ConstantTorque\": \"(-0.000747, 0.003638, 0.001825)\",
+			\"GlobalTransform\": \"[X: (0.345295, -0.524749, 0.778081), Y: (0.310053, 0.846306, 0.433167), Z: (-0.885798, 0.091676, 0.454925), O: (40.64958, 27.05613, -44.20119)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 86.2761306762695,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.206423, -0.103212, 0.008257)\",
+			\"ConstantTorque\": \"(0.0007, -0.000164, -0.001176)\",
+			\"GlobalTransform\": \"[X: (0.259573, -0.913468, -0.313365), Y: (0.793239, 0.0166, 0.608684), Z: (-0.550812, -0.406571, 0.728907), O: (53.75474, -15.07487, 24.5515)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 86.6095352172852,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.256228, -0.128114, 0.010249)\",
+			\"ConstantTorque\": \"(0.001417, 0.003807, 0.002412)\",
+			\"GlobalTransform\": \"[X: (0.228568, 0.709461, -0.66665), Y: (-0.299664, 0.702802, 0.645191), Z: (0.92626, 0.052301, 0.373238), O: (37.85144, 65.01301, 40.47127)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 86.9429397583008,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.267187, -0.133594, 0.010687)\",
+			\"ConstantTorque\": \"(-0.001622, 0.001076, -0.000338)\",
+			\"GlobalTransform\": \"[X: (0.657932, -0.298193, 0.691525), Y: (-0.640211, 0.262066, 0.722116), Z: (-0.396555, -0.917825, -0.018485), O: (36.01906, 42.5497, -42.46003)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 87.2930145263672,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.191083, -0.095541, 0.007643)\",
+			\"ConstantTorque\": \"(0.001966, 0.003619, -0.000092)\",
+			\"GlobalTransform\": \"[X: (-0.446476, 0.795996, 0.408718), Y: (0.77409, 0.572714, -0.269785), Z: (-0.448826, 0.195932, -0.871875), O: (56.81799, 47.17041, -50.76287)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 87.6264190673828,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.267636, -0.133818, 0.010705)\",
+			\"ConstantTorque\": \"(-0.000009, -0.001189, 0.003606)\",
+			\"GlobalTransform\": \"[X: (-0.026985, 0.950079, 0.310841), Y: (-0.948639, 0.073712, -0.307652), Z: (-0.315207, -0.303178, 0.899293), O: (40.71438, -3.197887, -82.06271)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 87.9598236083984,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.199995, -0.099997, 0.008)\",
+			\"ConstantTorque\": \"(0.001886, 0.00164, -0.000633)\",
+			\"GlobalTransform\": \"[X: (0.74156, 0.038963, -0.669754), Y: (0.478653, 0.668782, 0.568877), Z: (0.470085, -0.742437, 0.477292), O: (57.3877, 51.77032, -48.2482)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 88.3098983764648,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.204183, -0.102091, 0.008167)\",
+			\"ConstantTorque\": \"(0.003901, 0.001968, -0.001548)\",
+			\"GlobalTransform\": \"[X: (0.88984, 0.396311, 0.226102), Y: (-0.126539, 0.690454, -0.712223), Z: (-0.438375, 0.605154, 0.664542), O: (52.9209, -19.80557, -46.04798)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 88.6433029174805,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.214449, -0.107224, 0.008578)\",
+			\"ConstantTorque\": \"(0.000767, 0.003482, 0.00257)\",
+			\"GlobalTransform\": \"[X: (-0.740303, -0.106699, 0.663752), Y: (0.602897, 0.331451, 0.725711), Z: (-0.297434, 0.93742, -0.181046), O: (51.74513, 57.73618, -36.19545)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 88.9767074584961,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.199234, -0.099617, 0.007969)\",
+			\"ConstantTorque\": \"(0.003579, 0.002577, 0.000276)\",
+			\"GlobalTransform\": \"[X: (0.34181, 0.878543, 0.33366), Y: (0.929275, -0.263061, -0.25932), Z: (-0.140051, 0.3987, -0.906325), O: (57.33937, 72.74474, -17.86721)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 89.3267822265625,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.224635, -0.112318, 0.008985)\",
+			\"ConstantTorque\": \"(0.000287, -0.000669, 0.003327)\",
+			\"GlobalTransform\": \"[X: (-0.253553, -0.963535, -0.085501), Y: (0.921734, -0.213843, -0.323539), Z: (0.293457, -0.160844, 0.942344), O: (54.57929, 29.11715, -76.10819)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 89.6601867675781,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.185565, -0.092783, 0.007423)\",
+			\"ConstantTorque\": \"(-0.000571, 0.000432, -0.001023)\",
+			\"GlobalTransform\": \"[X: (0.991546, 0.117764, 0.054479), Y: (-0.121148, 0.990591, 0.063661), Z: (-0.046469, -0.069723, 0.996484), O: (62.57051, 18.91028, -43.69685)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 90.0102615356445,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.192388, -0.096194, 0.007696)\",
+			\"ConstantTorque\": \"(0.000462, 0.002428, 0.001191)\",
+			\"GlobalTransform\": \"[X: (0.764715, 0.319186, -0.55976), Y: (-0.247044, 0.947543, 0.20281), Z: (0.595131, -0.016806, 0.803453), O: (62.6584, 46.23407, -73.33773)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 90.3436660766602,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.208181, -0.104091, 0.008327)\",
+			\"ConstantTorque\": \"(-0.000001, 0.003497, 0.002087)\",
+			\"GlobalTransform\": \"[X: (0.852618, 0.267705, -0.448751), Y: (-0.267791, 0.961304, 0.064674), Z: (0.4487, 0.065029, 0.891314), O: (57.95355, 24.12265, 39.00231)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 90.6770706176758,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.26515, -0.132575, 0.010606)\",
+			\"ConstantTorque\": \"(0.003666, 0.003083, 0.002111)\",
+			\"GlobalTransform\": \"[X: (0.907163, -0.156888, 0.390438), Y: (0.307196, 0.881035, -0.359733), Z: (-0.287551, 0.446277, 0.847438), O: (52.11069, -24.48766, 18.47533)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 91.0271453857422,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.183832, -0.091916, 0.007353)\",
+			\"ConstantTorque\": \"(-0.001488, 0.001841, 0.003747)\",
+			\"GlobalTransform\": \"[X: (0.108017, 0.705131, -0.700802), Y: (-0.985611, 0.168144, 0.017267), Z: (0.130011, 0.688853, 0.713147), O: (65.19616, 73.05468, -67.69823)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 91.3605499267578,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.226687, -0.113343, 0.009067)\",
+			\"ConstantTorque\": \"(0.000962, -0.001753, 0.001716)\",
+			\"GlobalTransform\": \"[X: (0.838326, -0.424028, -0.342651), Y: (0.33343, 0.896057, -0.293097), Z: (0.431316, 0.13146, 0.892572), O: (56.70236, 5.771397, 26.93573)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 91.6939544677734,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.183655, -0.091827, 0.007346)\",
+			\"ConstantTorque\": \"(0.001587, 0.001833, -0.000914)\",
+			\"GlobalTransform\": \"[X: (0.699248, 0.510139, 0.500809), Y: (-0.093051, 0.759541, -0.64377), Z: (-0.708797, 0.403554, 0.578577), O: (64.50743, 63.17825, -64.17248)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 92.0440292358398,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.208668, -0.104334, 0.008347)\",
+			\"ConstantTorque\": \"(-0.001623, 0.00034, 0.00204)\",
+			\"GlobalTransform\": \"[X: (0.68657, -0.715319, -0.130155), Y: (0.634481, 0.502048, 0.587692), Z: (-0.355043, -0.486073, 0.798547), O: (66.33073, -4.159092, -10.98684)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 92.3774337768555,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.22236, -0.11118, 0.008894)\",
+			\"ConstantTorque\": \"(0.000626, 0.001737, -0.001085)\",
+			\"GlobalTransform\": \"[X: (-0.809523, 0.365094, -0.459761), Y: (0.573239, 0.322448, -0.753275), Z: (-0.126767, -0.873346, -0.470315), O: (57.17207, 57.93604, 14.25166)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 92.7108383178711,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.209679, -0.104839, 0.008387)\",
+			\"ConstantTorque\": \"(-0.001152, 0.00292, 0.002464)\",
+			\"GlobalTransform\": \"[X: (-0.286351, -0.86144, 0.419434), Y: (0.268533, 0.348064, 0.898188), Z: (-0.919725, 0.369829, 0.131657), O: (65.45177, -2.348057, 19.3131)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 93.0609130859375,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.215317, -0.107659, 0.008613)\",
+			\"ConstantTorque\": \"(0.00126, 0.000507, 0.000735)\",
+			\"GlobalTransform\": \"[X: (0.997142, 0.064393, -0.039509), Y: (-0.059816, 0.992378, 0.107742), Z: (0.046146, -0.105071, 0.993394), O: (60.08705, 88.49336, -40.36553)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 93.3943176269531,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.200904, -0.100452, 0.008036)\",
+			\"ConstantTorque\": \"(0.002212, -0.000539, -0.000367)\",
+			\"GlobalTransform\": \"[X: (0.840069, -0.451779, -0.3003), Y: (-0.444626, -0.89056, 0.095971), Z: (-0.310793, 0.052899, -0.949004), O: (70.69889, 78.06061, -67.4772)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 93.7277221679688,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.249905, -0.124953, 0.009996)\",
+			\"ConstantTorque\": \"(0.000151, 0.002254, 0.001029)\",
+			\"GlobalTransform\": \"[X: (-0.865012, -0.099451, 0.491796), Y: (0.306303, 0.671659, 0.674576), Z: (-0.397406, 0.734155, -0.550531), O: (61.3033, 3.012432, 33.15473)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 94.0611267089844,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.213576, -0.106788, 0.008543)\",
+			\"ConstantTorque\": \"(-0.00009, -0.001669, -0.000836)\",
+			\"GlobalTransform\": \"[X: (0.490703, -0.368292, 0.789665), Y: (0.412102, 0.896605, 0.162086), Z: (-0.767713, 0.245886, 0.591741), O: (68.20572, 63.36455, 20.47755)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 94.39453125,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.248162, -0.124081, 0.009926)\",
+			\"ConstantTorque\": \"(-0.001658, 0.002586, 0.003385)\",
+			\"GlobalTransform\": \"[X: (0.424453, -0.833121, 0.35461), Y: (0.561122, 0.549397, 0.619116), Z: (-0.710621, -0.063806, 0.700676), O: (58.84717, 42.97379, -80.64928)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 94.7279357910156,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.199185, -0.099592, 0.007967)\",
+			\"ConstantTorque\": \"(-0.000145, 0.001343, -0.000909)\",
+			\"GlobalTransform\": \"[X: (0.992196, 0.069343, 0.103628), Y: (-0.070498, 0.997484, 0.00752), Z: (-0.102846, -0.014767, 0.994588), O: (66.43718, 40.1567, -86.44914)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 95.0613403320312,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.186189, -0.093094, 0.007448)\",
+			\"ConstantTorque\": \"(0.000021, 0.00125, -0.001462)\",
+			\"GlobalTransform\": \"[X: (0.659951, -0.568645, -0.491028), Y: (0.573496, 0.80349, -0.159707), Z: (0.485353, -0.176204, 0.856379), O: (74.98591, 42.18098, -26.61505)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 95.3947448730469,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.261339, -0.130669, 0.010454)\",
+			\"ConstantTorque\": \"(-0.000506, -0.001543, 0.002673)\",
+			\"GlobalTransform\": \"[X: (0.383177, -0.74462, -0.546549), Y: (0.845684, 0.520786, -0.116624), Z: (0.371476, -0.41752, 0.829266), O: (60.48815, 36.49756, -40.01364)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 95.7281494140625,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.249554, -0.124777, 0.009982)\",
+			\"ConstantTorque\": \"(0.000987, -0.000879, -0.001693)\",
+			\"GlobalTransform\": \"[X: (0.367907, -0.923232, 0.11085), Y: (0.621843, 0.332915, 0.708858), Z: (-0.691344, -0.191863, 0.696587), O: (59.97004, 50.42405, 23.2551)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 96.0615539550781,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.181169, -0.090584, 0.007247)\",
+			\"ConstantTorque\": \"(0.00364, 0.000756, 0.001519)\",
+			\"GlobalTransform\": \"[X: (0.999987, 0.004647, -0.00228), Y: (-0.004621, 0.999928, 0.01111), Z: (0.002331, -0.0111, 0.999936), O: (97.75726, 109.7589, 16.0241)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 96.3949584960938,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.220033, -0.110016, 0.008801)\",
+			\"ConstantTorque\": \"(0.001118, 0.003087, -0.001832)\",
+			\"GlobalTransform\": \"[X: (0.963359, -0.126918, -0.236287), Y: (0.146539, 0.98691, 0.067345), Z: (0.224646, -0.099503, 0.969347), O: (69.067, 104.5355, 19.72092)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 96.7283630371094,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.197793, -0.098896, 0.007912)\",
+			\"ConstantTorque\": \"(-0.000474, 0.002332, 0.000665)\",
+			\"GlobalTransform\": \"[X: (-0.349997, -0.007319, -0.936722), Y: (-0.499949, 0.847104, 0.180183), Z: (0.792183, 0.531376, -0.300143), O: (72.52774, 3.527172, -27.12165)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 97.061767578125,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.228949, -0.114474, 0.009158)\",
+			\"ConstantTorque\": \"(0.003781, 0.003542, 0.002012)\",
+			\"GlobalTransform\": \"[X: (0.889112, -0.130738, 0.438621), Y: (0.309707, 0.877462, -0.366254), Z: (-0.33699, 0.461485, 0.820652), O: (66.31744, 65.17864, -28.27404)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 97.3951721191406,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.204365, -0.102182, 0.008175)\",
+			\"ConstantTorque\": \"(0.002151, -0.000471, 0.00232)\",
+			\"GlobalTransform\": \"[X: (0.077883, -0.696531, 0.713288), Y: (0.363129, -0.646495, -0.670956), Z: (0.928478, 0.311271, 0.20258), O: (72.50711, 24.44655, 18.64703)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 97.7285766601562,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.261412, -0.130706, 0.010456)\",
+			\"ConstantTorque\": \"(-0.000558, 0.002155, -0.000378)\",
+			\"GlobalTransform\": \"[X: (0.723333, -0.188233, -0.664348), Y: (0.0492, 0.973731, -0.222324), Z: (0.688745, 0.128128, 0.713592), O: (69.86846, 73.3319, -16.42125)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 98.0619812011719,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.231227, -0.115614, 0.009249)\",
+			\"ConstantTorque\": \"(0.000807, 0.002391, -0.000087)\",
+			\"GlobalTransform\": \"[X: (0.215628, 0.230421, -0.9489), Y: (0.298624, 0.909642, 0.288747), Z: (0.929693, -0.345627, 0.127335), O: (71.37941, 60.83509, -65.33533)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 98.3953857421875,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.195044, -0.097522, 0.007802)\",
+			\"ConstantTorque\": \"(0.003582, -0.000505, 0.003931)\",
+			\"GlobalTransform\": \"[X: (-0.082059, -0.31563, 0.945327), Y: (0.066457, -0.948148, -0.310803), Z: (0.994409, 0.03732, 0.09878), O: (76.728, 18.10387, 34.23308)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 98.7287902832031,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.250392, -0.125196, 0.010016)\",
+			\"ConstantTorque\": \"(-0.001188, 0.00029, 0.002896)\",
+			\"GlobalTransform\": \"[X: (-0.688096, 0.156911, -0.708451), Y: (-0.294255, -0.952798, 0.074771), Z: (-0.663278, 0.259915, 0.701788), O: (72.34402, -0.249638, 34.75085)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 99.0621948242188,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.233781, -0.11689, 0.009351)\",
+			\"ConstantTorque\": \"(-0.001026, 0.000605, -0.000461)\",
+			\"GlobalTransform\": \"[X: (0.333607, -0.543318, 0.770398), Y: (-0.887326, -0.45696, 0.061972), Z: (0.318371, -0.704268, -0.634545), O: (74.45863, 5.876957, 4.135921)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 99.3955993652344,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.265396, -0.132698, 0.010616)\",
+			\"ConstantTorque\": \"(0.003065, 0.002707, -0.001641)\",
+			\"GlobalTransform\": \"[X: (0.974176, 0.137681, 0.178956), Y: (-0.094908, 0.96885, -0.228741), Z: (-0.204875, 0.20585, 0.956897), O: (66.59109, 18.69178, -3.534595)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 99.72900390625,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.231468, -0.115734, 0.009259)\",
+			\"ConstantTorque\": \"(-0.000409, 0.00322, 0.003946)\",
+			\"GlobalTransform\": \"[X: (0.288232, 0.704451, -0.648592), Y: (-0.776666, 0.568178, 0.271963), Z: (0.5601, 0.425351, 0.71089), O: (74.5273, 31.99204, -86.24473)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 100.062408447266,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.230203, -0.115102, 0.009208)\",
+			\"ConstantTorque\": \"(-0.00033, 0.001903, 0.000354)\",
+			\"GlobalTransform\": \"[X: (0.471814, -0.249124, 0.845771), Y: (0.071799, 0.966923, 0.244756), Z: (-0.87877, -0.054754, 0.474094), O: (73.4202, 96.60152, -27.23763)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 100.395812988281,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.248803, -0.124402, 0.009952)\",
+			\"ConstantTorque\": \"(0.002377, -0.001245, 0.002057)\",
+			\"GlobalTransform\": \"[X: (0.116394, -0.047931, 0.992046), Y: (-0.856648, -0.510294, 0.075853), Z: (0.5026, -0.858663, -0.100455), O: (70.81166, 2.83543, 34.29628)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 100.729217529297,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.199854, -0.099927, 0.007994)\",
+			\"ConstantTorque\": \"(-0.000768, -0.0017, 0.002994)\",
+			\"GlobalTransform\": \"[X: (-0.744781, 0.663545, -0.070774), Y: (-0.279272, -0.406261, -0.870034), Z: (-0.606059, -0.62822, 0.487885), O: (76.36858, 103.2713, -65.90589)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 101.062622070312,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.236703, -0.118352, 0.009468)\",
+			\"ConstantTorque\": \"(0.001289, 0.003772, 0.000295)\",
+			\"GlobalTransform\": \"[X: (-0.747821, 0.570579, 0.339416), Y: (0.616381, 0.786641, 0.035655), Z: (-0.246654, 0.235873, -0.93996), O: (79.89345, 11.74142, -72.26709)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 101.396026611328,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.247351, -0.123675, 0.009894)\",
+			\"ConstantTorque\": \"(0.000356, 0.001486, -0.001908)\",
+			\"GlobalTransform\": \"[X: (0.884639, 0.378106, 0.272856), Y: (-0.357221, 0.925675, -0.124578), Z: (-0.299679, 0.012736, 0.953955), O: (76.07559, 51.72927, -2.067932)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 101.729431152344,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.236722, -0.118361, 0.009469)\",
+			\"ConstantTorque\": \"(-0.001514, -0.000486, 0.000668)\",
+			\"GlobalTransform\": \"[X: (0.615896, 0.127982, -0.777363), Y: (0.699864, -0.541954, 0.465269), Z: (-0.361749, -0.830606, -0.423358), O: (80.05255, 2.630333, -10.5122)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 102.062835693359,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.266644, -0.133322, 0.010666)\",
+			\"ConstantTorque\": \"(-0.000174, -0.000955, 0.002287)\",
+			\"GlobalTransform\": \"[X: (0.747877, -0.605502, -0.272116), Y: (0.619153, 0.784089, -0.043058), Z: (0.239435, -0.136279, 0.961301), O: (77.46812, 34.2939, -43.84853)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 102.396240234375,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.244141, -0.122071, 0.009766)\",
+			\"ConstantTorque\": \"(0.00378, 0.001824, 0.000837)\",
+			\"GlobalTransform\": \"[X: (0.562237, 0.775803, 0.28639), Y: (0.722992, -0.629244, 0.285192), Z: (0.401462, 0.046713, -0.914684), O: (77.88693, 4.594299, -43.23844)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 102.729644775391,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.192355, -0.096178, 0.007694)\",
+			\"ConstantTorque\": \"(0.001387, 0.002618, -0.001492)\",
+			\"GlobalTransform\": \"[X: (0.806583, -0.212039, -0.551782), Y: (0.366716, 0.911602, 0.185747), Z: (0.463619, -0.352168, 0.813041), O: (83.12747, 54.49963, -5.13579)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 103.063049316406,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.230019, -0.115009, 0.009201)\",
+			\"ConstantTorque\": \"(-0.000003, 0.003625, 0.00125)\",
+			\"GlobalTransform\": \"[X: (0.033172, 0.325135, -0.945086), Y: (-0.326569, 0.897229, 0.297209), Z: (0.944591, 0.298777, 0.135942), O: (84.34356, 80.60757, -86.0641)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 103.396453857422,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.209256, -0.104628, 0.00837)\",
+			\"ConstantTorque\": \"(0.001133, -0.001724, 0.000373)\",
+			\"GlobalTransform\": \"[X: (-0.090968, -0.834333, -0.543703), Y: (-0.534633, 0.501533, -0.680171), Z: (0.840174, 0.228807, -0.491686), O: (85.05136, 79.73335, -33.41539)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 103.729858398438,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.241582, -0.120791, 0.009663)\",
+			\"ConstantTorque\": \"(0.002985, 0.002827, 0.002037)\",
+			\"GlobalTransform\": \"[X: (-0.034018, 0.98923, 0.142361), Y: (0.448336, -0.112202, 0.886795), Z: (0.893218, 0.093993, -0.43969), O: (85.51076, 39.66874, -15.45097)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 104.063262939453,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.187171, -0.093586, 0.007487)\",
+			\"ConstantTorque\": \"(0.001372, -0.000443, 0.001413)\",
+			\"GlobalTransform\": \"[X: (0.013949, -0.661434, 0.749873), Y: (0.115682, -0.743843, -0.658267), Z: (0.993188, 0.09593, 0.06614), O: (89.95949, 88.25029, -73.86776)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 104.396667480469,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.238746, -0.119373, 0.00955)\",
+			\"ConstantTorque\": \"(0.002674, 0.000968, -0.000366)\",
+			\"GlobalTransform\": \"[X: (0.920928, 0.308382, 0.238311), Y: (0.073765, 0.462499, -0.883546), Z: (-0.382688, 0.831261, 0.403181), O: (86.99158, 66.16677, -41.46053)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 104.730072021484,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.212505, -0.106253, 0.0085)\",
+			\"ConstantTorque\": \"(0.000377, 0.001948, 0.002382)\",
+			\"GlobalTransform\": \"[X: (0.592306, -0.590933, 0.547696), Y: (0.654117, 0.749572, 0.10135), Z: (-0.470429, 0.298228, 0.830516), O: (85.98477, 63.09736, -39.84037)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 105.0634765625,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.183997, -0.091998, 0.00736)\",
+			\"ConstantTorque\": \"(0.003802, 0.000254, 0.001783)\",
+			\"GlobalTransform\": \"[X: (0.95665, 0.286615, 0.05169), Y: (-0.260841, 0.764252, 0.589814), Z: (0.129546, -0.577728, 0.805883), O: (90.14703, 53.37074, -12.50989)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 105.396881103516,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.225621, -0.112811, 0.009025)\",
+			\"ConstantTorque\": \"(0.001284, 0.000286, 0.00343)\",
+			\"GlobalTransform\": \"[X: (0.928224, -0.367541, 0.057565), Y: (0.371998, 0.918735, -0.132454), Z: (-0.004205, 0.144361, 0.989516), O: (87.95438, 23.85408, 16.11107)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 105.730285644531,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.265063, -0.132532, 0.010603)\",
+			\"ConstantTorque\": \"(-0.001892, -0.000437, 0.00059)\",
+			\"GlobalTransform\": \"[X: (0.738202, 0.406378, -0.538437), Y: (0.396127, -0.90721, -0.141611), Z: (-0.546023, -0.108751, -0.830682), O: (86.89386, 6.719616, -8.895765)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 106.063690185547,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.241165, -0.120583, 0.009647)\",
+			\"ConstantTorque\": \"(0.003413, -0.00077, 0.002128)\",
+			\"GlobalTransform\": \"[X: (0.992308, -0.119845, -0.031004), Y: (0.111953, 0.975693, -0.188386), Z: (0.052828, 0.183466, 0.981606), O: (85.13721, 55.71871, -40.10424)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 106.397094726562,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.180842, -0.090421, 0.007234)\",
+			\"ConstantTorque\": \"(0.001294, 0.000373, 0.002096)\",
+			\"GlobalTransform\": \"[X: (0.999979, 0.006397, -0.001124), Y: (-0.006392, 0.999972, 0.003953), Z: (0.001149, -0.003945, 0.999992), O: (104.916, -0.430244, -68.71014)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 106.747169494629,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.238007, -0.119003, 0.00952)\",
+			\"ConstantTorque\": \"(-0.000474, -0.001014, -0.000812)\",
+			\"GlobalTransform\": \"[X: (-0.150006, -0.232433, 0.960975), Y: (0.887212, 0.397274, 0.234581), Z: (-0.436295, 0.887777, 0.146624), O: (86.58219, 2.89278, -14.30342)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 107.080574035645,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.181607, -0.090803, 0.007264)\",
+			\"ConstantTorque\": \"(0.002027, 0.001525, 0.003463)\",
+			\"GlobalTransform\": \"[X: (0.999933, 0.010578, -0.004619), Y: (-0.01055, 0.999925, 0.006207), Z: (0.004684, -0.006157, 0.99997), O: (99.25751, 54.80456, -52.31611)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 107.41397857666,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.197347, -0.098674, 0.007894)\",
+			\"ConstantTorque\": \"(-0.001722, -0.000789, -0.000135)\",
+			\"GlobalTransform\": \"[X: (0.695756, 0.595038, 0.402311), Y: (0.694896, -0.415867, -0.586664), Z: (-0.18178, 0.687739, -0.702831), O: (87.50893, 39.59089, -31.16696)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 107.747383117676,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.249732, -0.124866, 0.009989)\",
+			\"ConstantTorque\": \"(-0.001304, -0.00005, 0.001112)\",
+			\"GlobalTransform\": \"[X: (0.39236, 0.614388, -0.68453), Y: (-0.550276, -0.439554, -0.709922), Z: (-0.737055, 0.655225, 0.16562), O: (87.04977, 45.24388, 10.9797)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 108.114128112793,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.249987, -0.124993, 0.009999)\",
+			\"ConstantTorque\": \"(0.002435, 0.002622, 0.002099)\",
+			\"GlobalTransform\": \"[X: (0.321156, -0.121337, 0.939221), Y: (0.889833, 0.378096, -0.255423), Z: (-0.324123, 0.917781, 0.229397), O: (87.56609, 52.06655, -67.25438)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 108.447532653809,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.1896, -0.0948, 0.007584)\",
+			\"ConstantTorque\": \"(0.000658, -0.001495, -0.000878)\",
+			\"GlobalTransform\": \"[X: (-0.22956, -0.835106, 0.4999), Y: (0.029635, 0.507381, 0.861212), Z: (-0.972843, 0.212514, -0.091726), O: (92.83097, 0.801865, -65.58768)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 108.780937194824,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.226813, -0.113407, 0.009073)\",
+			\"ConstantTorque\": \"(0.001164, 0.000585, 0.001874)\",
+			\"GlobalTransform\": \"[X: (-0.244229, 0.820864, 0.51627), Y: (-0.381199, -0.570801, 0.727237), Z: (0.89165, -0.019189, 0.452319), O: (91.81873, 39.56569, -2.579891)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 109.131011962891,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.187352, -0.093676, 0.007494)\",
+			\"ConstantTorque\": \"(0.003216, 0.000369, -0.000035)\",
+			\"GlobalTransform\": \"[X: (0.973759, 0.226344, -0.023693), Y: (0.226767, -0.973801, 0.016987), Z: (-0.019227, -0.021914, -0.999575), O: (93.47722, 91.93307, 20.93681)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 109.464416503906,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.198875, -0.099437, 0.007955)\",
+			\"ConstantTorque\": \"(-0.00023, 0.001869, 0.001725)\",
+			\"GlobalTransform\": \"[X: (-0.675197, 0.378405, -0.633182), Y: (-0.600855, 0.215783, 0.769682), Z: (0.427881, 0.900137, 0.081671), O: (89.87862, 62.67855, -10.40467)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 109.797821044922,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.249985, -0.124993, 0.009999)\",
+			\"ConstantTorque\": \"(0.001852, 0.000506, 0.001926)\",
+			\"GlobalTransform\": \"[X: (0.091931, 0.724775, 0.682825), Y: (-0.295125, -0.635088, 0.713838), Z: (0.951026, -0.267143, 0.155515), O: (94.08259, 41.0976, 36.16459)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 110.147895812988,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.265502, -0.132751, 0.01062)\",
+			\"ConstantTorque\": \"(0.003332, -0.000612, 0.001175)\",
+			\"GlobalTransform\": \"[X: (0.730857, -0.23541, 0.640648), Y: (-0.389897, -0.91441, 0.108791), Z: (0.560205, -0.329298, -0.760088), O: (89.60853, 105.7068, 25.76209)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 110.481300354004,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.231949, -0.115974, 0.009278)\",
+			\"ConstantTorque\": \"(0.000215, -0.001638, 0.002087)\",
+			\"GlobalTransform\": \"[X: (-0.430534, 0.632411, 0.64397), Y: (-0.775646, 0.105599, -0.622272), Z: (-0.461534, -0.767402, 0.445063), O: (91.88483, 7.127571, -79.39382)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 110.81470489502,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.243372, -0.121686, 0.009735)\",
+			\"ConstantTorque\": \"(-0.000221, 0.003781, -0.000945)\",
+			\"GlobalTransform\": \"[X: (-0.928175, -0.192219, -0.318657), Y: (-0.019727, 0.880485, -0.473663), Z: (0.37162, -0.433356, -0.821037), O: (94.3067, 46.27095, -1.31263)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 111.164779663086,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.198573, -0.099286, 0.007943)\",
+			\"ConstantTorque\": \"(-0.000538, -0.001698, 0.000571)\",
+			\"GlobalTransform\": \"[X: (0.376889, 0.466656, 0.800117), Y: (-0.111864, 0.880425, -0.460802), Z: (-0.919479, 0.084167, 0.384024), O: (92.47314, 113.9345, -70.17971)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 111.498184204102,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.226963, -0.113482, 0.009079)\",
+			\"ConstantTorque\": \"(-0.000986, -0.000922, -0.000572)\",
+			\"GlobalTransform\": \"[X: (0.790428, -0.144815, 0.59519), Y: (0.468619, 0.768704, -0.435306), Z: (-0.394486, 0.622995, 0.675468), O: (93.66439, 118.1363, -1.747503)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 111.848258972168,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.249138, -0.124569, 0.009966)\",
+			\"ConstantTorque\": \"(0.000341, 0.003024, 0.000473)\",
+			\"GlobalTransform\": \"[X: (-0.180087, 0.280678, -0.942756), Y: (-0.020648, 0.957136, 0.288903), Z: (0.983434, 0.071494, -0.166572), O: (93.2627, 83.85359, -40.95499)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 112.181663513184,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.223268, -0.111634, 0.008931)\",
+			\"ConstantTorque\": \"(0.000229, -0.00125, -0.00168)\",
+			\"GlobalTransform\": \"[X: (0.444036, -0.753571, 0.48473), Y: (0.680845, 0.635456, 0.364205), Z: (-0.582479, 0.168306, 0.795231), O: (94.22288, 115.0555, -30.52628)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 112.515068054199,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.185376, -0.092688, 0.007415)\",
+			\"ConstantTorque\": \"(-0.000664, -0.000988, 0.002661)\",
+			\"GlobalTransform\": \"[X: (0.193937, 0.968128, 0.158481), Y: (-0.836914, 0.247561, -0.488149), Z: (-0.511824, -0.037965, 0.858251), O: (97.06107, 23.56183, -85.23304)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 112.865142822266,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.21096, -0.10548, 0.008438)\",
+			\"ConstantTorque\": \"(-0.000342, -0.001954, 0.002151)\",
+			\"GlobalTransform\": \"[X: (0.269374, 0.767887, 0.581194), Y: (-0.652364, 0.589441, -0.476424), Z: (-0.70842, -0.250814, 0.659722), O: (95.64744, 109.4554, 39.91405)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 113.198547363281,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.20106, -0.10053, 0.008042)\",
+			\"ConstantTorque\": \"(-0.000108, 0.003729, 0.00337)\",
+			\"GlobalTransform\": \"[X: (-0.463237, 0.570573, -0.678129), Y: (-0.617017, 0.341624, 0.708931), Z: (0.636162, 0.74682, 0.1938), O: (98.65834, 54.77656, -74.22505)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 113.531951904297,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.238855, -0.119428, 0.009554)\",
+			\"ConstantTorque\": \"(0.003043, 0.000846, 0.003299)\",
+			\"GlobalTransform\": \"[X: (0.379736, 0.855177, 0.352807), Y: (-0.579832, -0.077141, 0.811076), Z: (0.720829, -0.512564, 0.466566), O: (96.59159, 70.85767, -50.08286)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 113.882026672363,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.248909, -0.124455, 0.009956)\",
+			\"ConstantTorque\": \"(-0.000534, -0.000474, -0.001841)\",
+			\"GlobalTransform\": \"[X: (0.806279, -0.556861, 0.199549), Y: (0.583981, 0.803064, -0.118552), Z: (-0.094234, 0.212118, 0.97269), O: (94.6428, 21.16125, -61.31403)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 114.215431213379,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.232868, -0.116434, 0.009315)\",
+			\"ConstantTorque\": \"(-0.001726, -0.000749, -0.001099)\",
+			\"GlobalTransform\": \"[X: (0.923759, -0.250007, 0.290114), Y: (0.361458, 0.81949, -0.44473), Z: (-0.12656, 0.515687, 0.847378), O: (99.28458, 112.7505, 31.68842)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 114.548835754395,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.250481, -0.12524, 0.010019)\",
+			\"ConstantTorque\": \"(0.003828, -0.000467, 0.001296)\",
+			\"GlobalTransform\": \"[X: (0.939784, 0.223593, 0.258482), Y: (-0.337079, 0.481514, 0.809026), Z: (0.05643, -0.847438, 0.527887), O: (98.78979, 30.81424, 21.49792)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 114.898910522461,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.208092, -0.104046, 0.008324)\",
+			\"ConstantTorque\": \"(0.003823, 0.003122, 0.00075)\",
+			\"GlobalTransform\": \"[X: (0.749519, 0.428151, -0.504884), Y: (0.151904, 0.631095, 0.760687), Z: (0.644319, -0.646843, 0.40798), O: (95.62293, 8.997147, -82.75824)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 115.232315063477,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.242039, -0.12102, 0.009682)\",
+			\"ConstantTorque\": \"(0.003943, -0.000787, -0.000417)\",
+			\"GlobalTransform\": \"[X: (0.984619, -0.135451, 0.110352), Y: (0.015081, 0.695155, 0.718702), Z: (-0.17406, -0.705984, 0.686506), O: (98.62887, 85.01284, -47.73197)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 115.582389831543,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.234895, -0.117448, 0.009396)\",
+			\"ConstantTorque\": \"(0.001601, -0.000274, 0.000448)\",
+			\"GlobalTransform\": \"[X: (0.995822, 0.070479, 0.058063), Y: (-0.083787, 0.958047, 0.274089), Z: (-0.036309, -0.277809, 0.95995), O: (99.85597, 125.6638, 7.699282)]\",
+			\"Item\": {
+				\"amount\": 1,
+				\"itemKey\": \"scrap/electronics_scrap\"
+			},
+			\"Lifetime\": 115.915794372559,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.216723, -0.108361, 0.008669)\",
+			\"ConstantTorque\": \"(-0.001295, -0.000952, 0.000961)\",
+			\"GlobalTransform\": \"[X: (0.97982, 0.15492, 0.126305), Y: (-0.127739, 0.971339, -0.200459), Z: (-0.15374, 0.18028, 0.971526), O: (98.62712, 113.8006, -25.70198)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 116.249198913574,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.209128, -0.104564, 0.008365)\",
+			\"ConstantTorque\": \"(-0.001846, 0.002409, 0.002728)\",
+			\"GlobalTransform\": \"[X: (0.9007, 0.290085, -0.323403), Y: (-0.356772, 0.918664, -0.169617), Z: (0.247896, 0.268155, 0.930935), O: (103.6446, 76.85964, -54.36128)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 116.599273681641,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.199319, -0.099659, 0.007973)\",
+			\"ConstantTorque\": \"(0.001751, -0.000216, 0.000829)\",
+			\"GlobalTransform\": \"[X: (0.99622, 0.081762, 0.029331), Y: (-0.085666, 0.980659, 0.175979), Z: (-0.014375, -0.177827, 0.983957), O: (99.91969, 25.88414, -61.44869)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 116.932678222656,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.245431, -0.122715, 0.009817)\",
+			\"ConstantTorque\": \"(0.001906, 0.003234, -0.001714)\",
+			\"GlobalTransform\": \"[X: (0.955829, -0.116872, -0.269688), Y: (0.157534, 0.97833, 0.134362), Z: (0.248141, -0.170912, 0.953528), O: (99.8364, 1.824177, -26.14695)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 117.266082763672,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.260751, -0.130375, 0.01043)\",
+			\"ConstantTorque\": \"(-0.000787, -0.00145, -0.001322)\",
+			\"GlobalTransform\": \"[X: (0.992242, -0.081413, 0.093961), Y: (0.086012, 0.995233, -0.045968), Z: (-0.089771, 0.053693, 0.994514), O: (97.66601, 1.460716, -7.00279)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 117.599487304688,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.19469, -0.097345, 0.007788)\",
+			\"ConstantTorque\": \"(0.000975, -0.001624, 0.000942)\",
+			\"GlobalTransform\": \"[X: (0.996017, 0.042928, 0.078155), Y: (-0.046508, 0.997923, 0.044569), Z: (-0.076079, -0.048026, 0.995945), O: (98.61508, 55.07476, -24.93294)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 117.932891845703,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.258248, -0.129124, 0.01033)\",
+			\"ConstantTorque\": \"(0.00337, 0.003344, 0.003017)\",
+			\"GlobalTransform\": \"[X: (0.98847, 0.10768, -0.106451), Y: (-0.094869, 0.988369, 0.118858), Z: (0.118012, -0.107388, 0.987188), O: (100.5139, 106.8837, -2.956308)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 118.266296386719,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.224885, -0.112443, 0.008995)\",
+			\"ConstantTorque\": \"(-0.001917, -0.001537, 0.000437)\",
+			\"GlobalTransform\": \"[X: (0.99937, 0.010422, 0.033916), Y: (-0.008969, 0.999046, -0.042733), Z: (-0.034329, 0.042402, 0.998511), O: (103.8532, 94.69769, -76.75821)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 118.599700927734,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.215987, -0.107993, 0.008639)\",
+			\"ConstantTorque\": \"(0.002247, -0.001021, 0.002419)\",
+			\"GlobalTransform\": \"[X: (0.999419, 0.03121, 0.013716), Y: (-0.031597, 0.999081, 0.028962), Z: (-0.0128, -0.029379, 0.999486), O: (104.4832, 32.6491, -78.24048)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 118.93310546875,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.196722, -0.098361, 0.007869)\",
+			\"ConstantTorque\": \"(-0.00015, 0.001514, 0.003786)\",
+			\"GlobalTransform\": \"[X: (0.999684, 0.02332, -0.009338), Y: (-0.023328, 0.999728, -0.000817), Z: (0.009317, 0.001034, 0.999956), O: (98.28194, 92.2765, -86.87038)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 119.266510009766,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.183588, -0.091794, 0.007344)\",
+			\"ConstantTorque\": \"(0.003092, 0.003111, 0.000693)\",
+			\"GlobalTransform\": \"[X: (0.999983, 0.001275, -0.005652), Y: (-0.001244, 0.999983, 0.005624), Z: (0.005659, -0.005617, 0.999968), O: (99.81184, 111.118, -75.50024)]\",
+			\"Item\": {
+				\"amount\": 4,
+				\"itemKey\": \"scrap/metal_scrap\"
+			},
+			\"Lifetime\": 119.599914550781,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"ConstantForce\": \"(-0.229956, -0.114978, 0.009198)\",
+			\"ConstantTorque\": \"(0.001225, -0.001903, 0.002406)\",
+			\"GlobalTransform\": \"[X: (1, 0.000048, 0.000038), Y: (-0.000048, 1, 0.000024), Z: (-0.000038, -0.000024, 1), O: (98.88386, 62.90478, -10.42926)]\",
+			\"Item\": {
+				\"amount\": 10,
+				\"itemKey\": \"food/ration\"
+			},
+			\"Lifetime\": 119.949989318848,
+			\"PrefabPath\": \"res://Prefabs/DroppedItem.tscn\"
+		},
+		{
+			\"GlobalTransform\": \"[X: (0.149536, -0, -0.988756), Y: (-0, 1, -0), Z: (-0.988756, -0, -0.149536), O: (-0.577238, -0, -0.48555)]\",
+			\"Inventory\": {
+				\"slots\": {
+
+				}
+			},
+			\"PrefabPath\": \"res://Prefabs/Props/Smelter.tscn\",
+			\"ports\": [
+				{
+					\"PortId\": \"c8a673e9-5ed8-4ab9-8fc3-54e66358b246\"
+				},
+				{
+					\"PortId\": \"28126cd4-a658-49ec-aea6-e4811f3bedcb\"
+				}
+			],
+			\"progress\": 0
+		},
+		{
+			\"GlobalTransform\": \"[X: (-0.687088, 0, 0.726574), Y: (-0, 1, -0), Z: (0.726574, 0, 0.687088), O: (0.556393, -0.0024, -1.935982)]\",
+			\"Inventory\": {
+				\"slots\": {
+
+				}
+			},
+			\"PrefabPath\": \"res://Prefabs/Props/StorageBox.tscn\",
+			\"ports\": [
+				{
+					\"PortId\": \"c7a9309c-7c0a-4b5e-860d-fafb54040314\"
+				},
+				{
+					\"PortId\": \"b5dec8d7-abe7-48ef-a59d-2070dbb22d19\"
+				},
+				{
+					\"PortId\": \"1d744ccc-2d7b-4830-819b-7aa389fe2f5c\"
+				},
+				{
+					\"PortId\": \"1b2d2598-a323-4158-9e38-3f87208a248f\"
+				}
+			],
+			\"progress\": 0
+		},
+		{
+			\"GlobalTransform\": \"[X: (0.413104, 0, 0.910684), Y: (0, 1, 0), Z: (-0.910684, 0, 0.413104), O: (-0.38417, 0, 1.960842)]\",
+			\"Inventory\": {
+				\"slots\": {
+
+				}
+			},
+			\"PrefabPath\": \"res://Prefabs/Props/Sorter.tscn\",
+			\"ports\": [
+				{
+					\"PortId\": \"a56141b8-589c-44fd-b1cb-32adb56dbfea\"
+				},
+				{
+					\"PortId\": \"061d201f-8069-44f1-a39d-9d8e3fbf0ab0\"
+				}
+			],
+			\"progress\": 0
+		},
+		{
+			\"GlobalTransform\": \"[X: (0.114936, 0, 0.993373), Y: (-0, 1, -0), Z: (0.993373, 0, -0.114936), O: (-2.250192, -0.000002, 1.986211)]\",
+			\"Inventory\": {
+				\"slots\": {
+
+				}
+			},
+			\"PrefabPath\": \"res://Prefabs/Props/StorageBox.tscn\",
+			\"ports\": [
+				{
+					\"PortId\": \"a013361f-b5b4-47de-ad86-0d843b8153ee\"
+				},
+				{
+					\"PortId\": \"a327097f-3ee5-4a4a-90a0-230f14eb28af\"
+				},
+				{
+					\"PortId\": \"b784f3f9-b321-480a-909a-1a0cc235dd24\"
+				},
+				{
+					\"PortId\": \"fd39f20c-b42e-4576-80f8-9974ad35c5e0\"
+				}
+			],
+			\"progress\": 0
+		},
+		{
+			\"GlobalTransform\": \"[X: (-0.895712, 0, 0.444634), Y: (0, 1, 0), Z: (-0.444634, 0, -0.895712), O: (-1.47094, 0.000005, -1.868026)]\",
+			\"Inventory\": {
+				\"slots\": {
+
+				}
+			},
+			\"PrefabPath\": \"res://Prefabs/Props/StorageBox.tscn\",
+			\"ports\": [
+				{
+					\"PortId\": \"b08d73d9-4086-414e-b6f0-696259ea1e2f\"
+				},
+				{
+					\"PortId\": \"3341ce92-ad91-4749-8342-27d4aeaa90ed\"
+				},
+				{
+					\"PortId\": \"cca68345-804e-4449-b135-5a1ec4814d7e\"
+				},
+				{
+					\"PortId\": \"6290ba70-5726-45e3-9f48-0e9015768c11\"
+				}
+			],
+			\"progress\": 0
+		}
+	],
+	\"Players\": {
+		\"76561198042974194\": {
+			\"EquippedItemIndex\": 0,
+			\"Health\": 100,
+			\"Hunger\": 76.68994140625,
+			\"Inventory\": {
+				\"slots\": {
+					\"0\": {
+						\"amount\": 99,
+						\"itemKey\": \"food/ration\"
+					},
+					\"1\": {
+						\"amount\": 100,
+						\"itemKey\": \"machines/pipe\"
+					},
+					\"2\": {
+						\"amount\": 1,
+						\"itemKey\": \"machines/pipe\"
+					}
+				}
+			},
+			\"Look\": -0.45380172133446,
+			\"MaxHealth\": 100,
+			\"MaxHunger\": 100,
+			\"MaxOxygen\": 100,
+			\"Oxygen\": 100,
+			\"Position\": \"(-4.299974, -0.00059, -0.2684)\",
+			\"Rot\": -1.75580275058746
+		}
+	},
+	\"Version\": 1
+}"
+scroll_vertical = 3069.0
+minimap_draw = true
+symbol_lookup_on_click = true
+line_folding = true
+gutters_draw_line_numbers = true
+gutters_draw_fold_gutter = true
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_y5lxt")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "i am a status bar :)"
