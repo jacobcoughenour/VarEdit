@@ -10,7 +10,7 @@ func _enter_tree() -> void:
 	if not Engine.is_editor_hint():
 		return
 	main_panel_instance = MainPanel.instantiate()
-	main_panel_instance.editor_plugin = self
+	main_panel_instance.set_version(get_plugin_version())
 	get_editor_interface().get_editor_main_screen().add_child(main_panel_instance)
 	_make_visible(false)
 
