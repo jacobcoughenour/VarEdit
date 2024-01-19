@@ -11,6 +11,7 @@ func _enter_tree() -> void:
 		return
 	main_panel_instance = MainPanel.instantiate()
 	main_panel_instance.set_version(get_plugin_version())
+	main_panel_instance.is_inside_plugin = true
 	get_editor_interface().get_editor_main_screen().add_child(main_panel_instance)
 	_make_visible(false)
 

@@ -10,7 +10,9 @@ class_name VarEditMainPanel
 @onready var tree_path_filter_mode: OptionButton = get_node("%TreePathMode")
 @onready var tree_path_filter: LineEdit = get_node("%TreePathFilter")
 @onready var code_edit: CodeEdit = get_node("%CodeEdit")
-@onready var welcome: HBoxContainer = get_node("%Welcome")
+@onready var welcome: Control = get_node("%Welcome")
+@onready var title_container: VBoxContainer = get_node("%TitleContainer")
+@onready var title: Label = get_node("%Title")
 @onready var version_label: Label = get_node("%VersionLabel")
 @onready var open_button: Button = get_node("%OpenButton")
 @onready var open_user_button: Button = get_node("%OpenUser")
@@ -18,7 +20,9 @@ class_name VarEditMainPanel
 @onready var reload_check_button: CheckButton = get_node("%ReloadCheckButton")
 @onready var error_dialog: AcceptDialog = get_node("%ErrorDialog")
 @onready var new_tab_button: Button = get_node("%NewTabButton")
+@onready var recent_scroll_container: ScrollContainer = get_node("%RecentScrollContainer")
 @onready var recent_list: ItemList = get_node("%RecentList")
+@onready var welcome_split: HBoxContainer = get_node("%WelcomeSplit")
 
 var open_files = []
 
@@ -73,10 +77,15 @@ func set_version(version: String):
 	if version_label != null:
 		version_label.text = version
 
+var is_inside_plugin = false
+
 func _ready():
-	
+
+	if !is_inside_plugin:
+		return
+
 	var main_control = get_parent().get_parent()
-	
+
 	for type in types:
 		var name = types[type]
 		type_icons[type] = main_control.get_theme_icon(name, "EditorIcons")
@@ -89,11 +98,25 @@ func _ready():
 	file_icon = main_control.get_theme_icon("Object", "EditorIcons")
 	compressed_icon = main_control.get_theme_icon("ResourcePreloader", "EditorIcons")
 
+	var dpi = DisplayServer.screen_get_dpi()
+	var scale = 1;
+	if dpi >= 192:
+		scale = 2 # around 200%
+
+	# scale some elements that are dpi dependent
+	title_container.remove_theme_constant_override("separation")
+	title_container.add_theme_constant_override("separation", -16 * scale)
+	title.label_settings.font_size = 48 * scale
+	version_label.label_settings.font_size = 16 * scale
+	recent_scroll_container.custom_minimum_size = Vector2(256, 240) * scale
+	welcome_split.remove_theme_constant_override("separation")
+	welcome_split.add_theme_constant_override("separation", 40 * scale)
+
 	tab_bar.connect("tab_changed", Callable(self, "select_file"))
 	tab_bar.connect("tab_close_pressed", Callable(self, "close_file"))
 	tree_path_filter_mode.connect("item_selected", Callable(self, "filter_mode_changed"))
 	tree_path_filter.connect("text_changed", Callable(self, "filter_changed"))
-	
+
 	recent_list.connect("item_activated", Callable(self, "_on_recent_activated"))
 
 	tab_bar.clear_tabs()
@@ -108,21 +131,22 @@ func _ready():
 	tree.connect("item_activated", Callable(self, "tree_item_activated"))
 	open_button.connect("pressed", Callable(self, "_on_open_clicked"))
 	open_user_button.connect("pressed", Callable(self, "_on_user_clicked"))
+	open_github_button.connect("pressed", Callable(self, "_on_open_github_clicked"))
 	new_tab_button.connect("pressed", Callable(self, "_on_new_tab_clicked"))
-	
+
 	load_recent_list()
-	
+
 	top_bar.visible = false
 	welcome.visible = true
-	
+
 	error_dialog.visible = false
-	
+
 	open_dialog = FileDialog.new()
 	open_dialog.connect("file_selected", _on_file_selected)
 	add_child(open_dialog)
 	open_dialog.visible = false
-	
-	
+
+
 func load_recent_list():
 	recent_list.clear()
 	var settings = EditorInterface.get_editor_settings()
@@ -131,13 +155,13 @@ func load_recent_list():
 	var recent = settings.get_setting("varedit/recent_files")
 	for item in recent:
 		recent_list.add_item(item)
-	
+
 func push_file_to_recent_list(path: String):
 	var settings = EditorInterface.get_editor_settings()
 	var recent = []
 	if settings.has_setting("varedit/recent_files"):
 		recent = settings.get_setting("varedit/recent_files")
-		
+
 	var new_recent = [path]
 	for item in recent:
 		# make sure we don't have duplicates
@@ -145,19 +169,19 @@ func push_file_to_recent_list(path: String):
 			new_recent.push_back(item)
 		if len(new_recent) >= 100:
 			break
-		
+
 	settings.set_setting("varedit/recent_files", new_recent)
 	load_recent_list()
-	
+
 func _on_recent_activated(index: int):
 	open_file(recent_list.get_item_text(index))
-	
+
 func show_error(message: String):
 	error_dialog.dialog_text = message
 	error_dialog.popup_centered(Vector2i(640, 320))
-	
+
 var open_dialog: FileDialog
-	
+
 func _on_open_clicked():
 	open_dialog.title = "Open a Variant File"
 	open_dialog.access = FileDialog.ACCESS_RESOURCES
@@ -165,19 +189,24 @@ func _on_open_clicked():
 	open_dialog.access = FileDialog.ACCESS_USERDATA
 	open_dialog.current_file = ""
 	open_dialog.popup_centered(Vector2i(640, 800))
-	
+
 func _on_file_selected(file: String) -> void:
 	open_file(file)
-	
+
 func _on_user_clicked():
 	OS.shell_show_in_file_manager(ProjectSettings.globalize_path("user://"), true)
-	
+
+func _on_open_github_clicked():
+	OS.shell_open("https://github.com/jacobcoughenour/varedit")
+
 func _on_new_tab_clicked():
 	_on_open_clicked()
 
 var last_refresh = 0.0
 
 func _process(delta):
+	if !is_inside_plugin:
+		return
 
 	if open_files.is_empty():
 		#welcome.visible = true
@@ -197,7 +226,7 @@ func _process(delta):
 
 
 func open_file(path: String):
-	
+
 	# switch to existingn tab if file already open
 	var index = 0
 	for tab in open_files:
@@ -206,7 +235,7 @@ func open_file(path: String):
 			tab_bar.current_tab = index
 			return
 		index += 1
-	
+
 	var file = FileAccess.open_compressed(path, FileAccess.READ, FileAccess.COMPRESSION_GZIP)
 	var error = FileAccess.get_open_error()
 	var is_compressed = true
@@ -214,16 +243,16 @@ func open_file(path: String):
 		file = FileAccess.open(path, FileAccess.READ)
 		error = FileAccess.get_open_error()
 		is_compressed = false
-		
+
 	if error != OK:
 		show_error("Failed to load file: " + str(error))
 		return
-	
+
 	var data = file.get_var(false)
 	if data == null:
 		show_error("File is missing Variant data or is corrupt.")
 		return
-	
+
 	var name = path.split("\\")[-1]
 	open_files.push_back({
 		"name": name,
