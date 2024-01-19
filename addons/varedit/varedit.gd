@@ -3,6 +3,7 @@ class_name VarEditPlugin
 extends EditorPlugin
 
 const MainPanel = preload("res://addons/varedit/main.tscn")
+const PluginIcon = preload("res://addons/varedit/icon.png")
 
 var main_panel_instance
 
@@ -30,7 +31,7 @@ func _get_plugin_name():
 	return "VarEdit"
 
 func _get_plugin_icon():
-	return get_editor_interface().get_base_control().get_theme_icon("Variant", "EditorIcons")
+	return PluginIcon
 
 
 
